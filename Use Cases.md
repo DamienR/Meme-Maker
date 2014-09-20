@@ -123,3 +123,16 @@ A1. 3a. Användaren vill att systemet ska komma ihåg en för en lättare inlogg
 2. Systemet presenterar en gilla-knapp och en ogilla-knapp brevid varje skapad meme.
 3. Användaren trycker på antingen gilla eller ogilla.
 4. Systemet registrerar knapptryckningen och presenterar ett meddelande till användaren att handlingen är slutförd.
+
+
+## A9 - Användaren vill ta bort en skapad meme
+### Förkrav
+1. Användaren är inloggad. Ex. A1.
+2. Användaren har skapat en meme. Ex. A4.
+3. Användaren är inne på sidan med sina skapade meme:s. Ex. A6.
+
+### Huvudscenario
+1. Startar när användaren vill radera en meme.
+2. Systemet presenterar en radera-knapp för användaren bredvid varje bild som användaren har skapat.
+3. Användaren trycker på en av radera-knapparna.
+4. Systemet tar bort bilden och presenterar ett meddelande att det har lyckats.

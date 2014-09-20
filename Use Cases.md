@@ -2,9 +2,9 @@
 
 ## Grundläggande krav
 1. Systemet ska svara på användarens interaktion inom en rimlig tid.
-  1. Systemet ska vara användarvänligt.
-  2. Systemet ska vara hjälpsam mot användare.
-2. Systemet ska erbjuda hjälpsamma felmeddleanden.
+2. Systemet ska vara användarvänligt.
+  1. Systemet ska vara hjälpsam mot användare.
+  2. Systemet ska erbjuda hjälpsamma felmeddelanden.
 3. Systemet ska vara säkert. Ska vara skyddat mot:
   1. SQL-injections.
   2. Javascript injections.
@@ -19,9 +19,11 @@
 
 ### Alternativa scenarion
 3a. Användaren vill att systemet ska komma ihåg en för en lättare inloggning.
+
 1. Systemet authentikerar användaren och presenterar att inloggningen lyckades.
 
 4a. Användaren kunde inte bli authentikerad.
+
 1. Systemet presenterar ett felmeddelande.
 2. Steg 2 i huvudscenariot.
 
@@ -47,6 +49,7 @@ A1. 3a. Användaren vill att systemet ska komma ihåg en för en lättare inlogg
 
 ### Alternativa scenarion
 2a. Användaren kunde inte bli authentikerad (för gamla inloggnignsuppgifter sparade > 30 dagar) (fel inloggnignsuppgifter), manipulerade inloggnignsuppgifter.
+
 1. Systemet presenterar ett felmeddelande.
 2. Steg 2 i A1.
 
@@ -63,6 +66,7 @@ A1. 3a. Användaren vill att systemet ska komma ihåg en för en lättare inlogg
 
 ### Alternativa scenarion
 3a. Användaren vill ladda upp en egen bild.
+
 1. Systemet presenterar en "ladda upp bild"-knapp.
 2. Användaren trycker på den och väljer en bild från sin lokala dator.
 3. Systemet tar emot den och går vidare till steg 4 i huvudscenariot.
@@ -82,6 +86,7 @@ A1. 3a. Användaren vill att systemet ska komma ihåg en för en lättare inlogg
 
 ### Alternativa scenarion
 3a. Användaren väljer att ladda upp bilden till bildsidan Imgur.
+
 1. Systemet laddar upp bilden på Imgur och presenterar en länk till bilden för användaren.
 
 

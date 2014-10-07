@@ -3,7 +3,7 @@
 
   require_once("src/view/Navigation.php");
   //require_once("src/controller/Login.php"); // TBA
-  require_once("src/controller/Index.php");
+  require_once("src/controller/Page.php");
 
   class Navigation {
     public function doControll() {
@@ -22,8 +22,8 @@
             break;
 
           default:
-            $controller = new \controller\Index();
-            return $controller->homePage();
+            $controller = new \controller\Page();
+            return $controller->General();
             break;
         }
       } catch (\Exception $e) {

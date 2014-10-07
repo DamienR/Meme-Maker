@@ -1,7 +1,7 @@
 <?php
   namespace controller;
 
-  //require_once("src/model/UserRepository.php");
+  require_once("src/model/UserRepository.php");
   require_once("src/view/Register.php");
   require_once("src/helper/Misc.php");
 
@@ -11,7 +11,7 @@
     private $misc;
 
     public function __construct() {
-      //$this->userRepository = new \model\UserRepository();
+      $this->userRepository = new \model\UserRepository();
       $this->registerView   = new \view\Register();
       $this->misc = new \helper\Misc();
     }

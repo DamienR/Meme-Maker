@@ -2,7 +2,7 @@
   namespace controller;
 
   require_once("src/view/Navigation.php");
-  //require_once("src/controller/Login.php"); // TBA
+  require_once("src/controller/Register.php");
   require_once("src/controller/Page.php");
 
   class Navigation {

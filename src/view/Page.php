@@ -3,6 +3,6 @@
 
   class Page {
     public function startPage() {
-      return "The startpage";
+      return "<a href='?action=register'>Register</a>";
     }
   }

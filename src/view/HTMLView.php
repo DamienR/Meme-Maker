@@ -10,7 +10,7 @@
       * @param string $body - The middle part of the page
       * @return string - The whole page
       */
-    public function echoHTML($title = "Login", $body) {
+    public function echoHTML($title = "Member", $body) {
       if ($body === NULL) {
         throw new \Exception("HTMLView::echoHTML does not allow body to be null.");
       }

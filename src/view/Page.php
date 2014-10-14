@@ -3,6 +3,9 @@
 
   class Page {
     public function startPage() {
-      return "<a href='?action=register'>Register</a>";
+      $ret  = "<a href='?" . Navigation::$action . "=" . Navigation::$actionAddUser . "'>Registrera</a><br />";
+      $ret .= "<a href='?" . Navigation::$action . "=" . Navigation::$actionLogin . "'>Logga in</a><br />";
+
+      return $ret;
     }
   }

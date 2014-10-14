@@ -66,7 +66,7 @@
     }
 
     /**
-      * A simple check if the password in the login is
+      * A simple check if the password in the Member is
       * the same as in db.
       *
       * @param string $password - The password submitted

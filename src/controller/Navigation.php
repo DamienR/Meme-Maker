@@ -2,7 +2,8 @@
   namespace controller;
 
   require_once("src/view/Navigation.php");
-  require_once("src/controller/Register.php");
+  require_once("src/controller/Member.php");
+  require_once("src/controller/Member.php");
   require_once("src/controller/Page.php");
 
   class Navigation {
@@ -12,12 +13,12 @@
       try {
         switch (\view\Navigation::getAction()) {
           case \view\Navigation::$actionAddUser:
-            $controller = new \controller\Register();
-            return $controller->addUser();
+            $controller = new \controller\Member();
+            return $controller->addMember();
             break;
 
           case \view\Navigation::$actionLogin:
-            $controller = new \controller\Login();
+            $controller = new \controller\Member();
             return $controller->logIn();
             break;
 

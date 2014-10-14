@@ -2,7 +2,7 @@
   namespace view;
 
   class Navigation {
-    private static $action        = "action";
+    public  static $action        = "action";
     public  static $actionIndex   = "index";
     public  static $actionAddUser = "register";
     public  static $actionLogin   = "login";

@@ -1,6 +1,8 @@
 <?php
   namespace model;
 
-  class Meme {
-    
+  class MemeModel {
+    public function generateMeme(Meme $meme) {
+      return 1;
+    }
   }

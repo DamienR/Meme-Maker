@@ -19,6 +19,10 @@
       return false;
     }
 
+    public function getFormData() {
+  		return new \model\Meme($_POST[self::$fieldText], $_POST[self::$fieldImage]);
+  	}
+
     public function createMeme() {
       $ret  = "<fieldset>";
       $ret .= "<legend>Skapa en meme</legend>";
@@ -30,12 +34,16 @@
       $ret .= "<input type='text' name='" . self::$fieldText . "' id='" . self::$fieldText . "' value='' /><br />";
 
       $ret .= "<label for='" . self::$fieldImage . "'>Bild: (1, 2, 3)</label>";
-      $ret .= "<input type='password' name='" . self::$fieldImage . "' id='" . self::$fieldImage . "' /><br />";
+      $ret .= "<input type='text' name='" . self::$fieldImage . "' id='" . self::$fieldImage . "' /><br />";
 
       $ret .= "<input type='submit' value='Skapa' />";
       $ret .= "</form>";
       $ret .= "</fieldset>";
 
       return $ret;
+    }
+
+    public function viewMeme($id) {
+      return $id;
     }
   }

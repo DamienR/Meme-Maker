@@ -1,5 +1,5 @@
 <?php
-  namespace model\base;
+  namespace DAL;
 
   require_once("Settings.php");
 

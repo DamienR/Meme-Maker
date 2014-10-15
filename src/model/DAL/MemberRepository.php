@@ -1,10 +1,10 @@
 <?php
-  namespace model;
+  namespace DAL;
 
-  require_once("src/model/Repository.php");
-  require_once("src/model/User.php");
+  require_once("src/model/DAL/Repository.php");
+  require_once("src/model/Member.php");
 
-  class UserRepository extends base\Repository {
+  class MemberRepository extends Repository {
     private static $nameRow = "name";
     private static $passwordRow = "password";
 

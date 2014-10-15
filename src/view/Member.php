@@ -26,7 +26,7 @@
             throw new \Exception("Lösenorden matchar inte.");
         }
 
-  			return new \model\User($_POST[self::$name], $_POST[self::$password]);
+  			return new \model\Member($_POST[self::$name], $_POST[self::$password]);
   		}
 
   		return null;
@@ -40,27 +40,27 @@
     public function getForm() {
       $name = isset($_POST[self::$name]) ? preg_replace('/[^a-z0-9\-_\.]/i', '', $_POST[self::$name]) : '';
 
-      $html  = "<h3>Ej Inloggad, Registrerar användare</h3>";
-      $html .= "<fieldset>";
-      $html .= "<legend>Registrera ny användare</legend>";
+      $ret  = "<h3>Ej Inloggad, Registrerar användare</h3>";
+      $ret .= "<fieldset>";
+      $ret .= "<legend>Registrera ny användare</legend>";
 
-      $html .= "<span class='alert'>" . $this->misc->getAlert() . "</span>";
+      $ret .= "<span class='alert'>" . $this->misc->getAlert() . "</span>";
 
-  		$html .= "<form action='?action=" . Navigation::$actionAddUser . "' method='post'>";
-      $html .= "<label for='" . self::$name . "'>Namn:</label>";
-  		$html .= "<input type='text' name='" . self::$name . "' id='" . self::$name . "' value='" . $name . "' /><br />";
+  		$ret .= "<form action='?action=" . Navigation::$actionAddUser . "' method='post'>";
+      $ret .= "<label for='" . self::$name . "'>Namn:</label>";
+  		$ret .= "<input type='text' name='" . self::$name . "' id='" . self::$name . "' value='" . $name . "' /><br />";
 
-      $html .= "<label for='" . self::$password . "'>Lösenord:</label>";
-      $html .= "<input type='password' name='" . self::$password . "' id='" . self::$password . "' /><br />";
+      $ret .= "<label for='" . self::$password . "'>Lösenord:</label>";
+      $ret .= "<input type='password' name='" . self::$password . "' id='" . self::$password . "' /><br />";
 
-      $html .= "<label for='" . self::$password_repeat . "'>Repetera lösenord:</label>";
-      $html .= "<input type='password' name='" . self::$password_repeat . "' id='" . self::$password_repeat . "' /><br />";
+      $ret .= "<label for='" . self::$password_repeat . "'>Repetera lösenord:</label>";
+      $ret .= "<input type='password' name='" . self::$password_repeat . "' id='" . self::$password_repeat . "' /><br />";
 
-  		$html .= "<input type='submit' value='Registrera' />";
-  		$html .= "</form>";
-      $html .= "</fieldset>";
+  		$ret .= "<input type='submit' value='Registrera' />";
+  		$ret .= "</form>";
+      $ret .= "</fieldset>";
 
-  		return $html;
+  		return $ret;
     }
 
     /**
@@ -91,11 +91,9 @@
       * @return boolval
       */
     public function didUserPressLogin() {
-      if (isset($_GET[self::$getLogin])) {
-        if (isset($_POST['username'])) {
-          if ($this->model->logIn($_POST['username'], $_POST['password'], isset($_POST['remember']))) {
-            return true;
-          }
+      if (isset($_POST['username'])) {
+        if ($this->model->logIn($_POST['username'], $_POST['password'], isset($_POST['remember']))) {
+          return true;
         }
       }
 

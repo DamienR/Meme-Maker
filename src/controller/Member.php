@@ -1,20 +1,20 @@
 <?php
   namespace controller;
 
-  require_once("src/model/UserRepository.php");
-  require_once("src/model/Member.php");
+  require_once("src/model/DAL/MemberRepository.php");
+  require_once("src/model/MemberModel.php");
   require_once("src/view/Member.php");
   require_once("src/helper/Misc.php");
 
   class Member {
     private $model;
     private $view;
-    private $userRepository;
+    private $MemberRepository;
     private $misc;
 
     public function __construct() {
-      $this->model = new \model\Member();
-      $this->userRepository = new \model\UserRepository();
+      $this->model = new \model\MemberModel();
+      $this->MemberRepository = new \DAL\MemberRepository();
       $this->view   = new \view\Member();
       $this->misc = new \helper\Misc();
     }
@@ -24,7 +24,7 @@
         try {
           $newUser = $this->view->getFormData();
 
-          //$this->userRepository->addUser($newUser);
+          //$this->MemberRepository->addUser($newUser);
 
           $this->misc->setAlert("Registrering av ny användare lyckades.");
           //$_SESSION["Member_username"] = $newUser->getName();

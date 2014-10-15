@@ -5,7 +5,7 @@
   require_once("src/helper/FileStorage.php");
   require_once("src/helper/Misc.php");
 
-  class Member {
+  class MemberModel {
     private $cookieStorage;
     private $fileStorage;
     private $misc;

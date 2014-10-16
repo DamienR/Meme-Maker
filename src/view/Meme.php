@@ -44,6 +44,8 @@
     }
 
     public function viewMeme($id) {
+      // Show the meme in some way and share-links
+
       return $id;
     }
   }

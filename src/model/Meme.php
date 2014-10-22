@@ -2,19 +2,36 @@
   namespace model;
 
   class Meme {
-    private $text;
-    private $imageName;
+    private $topText;
+    private $bottomText;
+    private $image;
+    private $base64;
 
-    public function __construct($text, $imageName) {
-      $this->text = $text;
-      $this->imageName = $imageName;
+    public function __construct($image, $topText, $bottomText) {
+      // TODO Validation
+      
+      $this->image = $image;
+      $this->topText = $topText;
+      $this->bottomText = $bottomText;
     }
 
-    public function getText() {
-      return $this->text;
+    public function getImage() {
+      return $this->image;
     }
 
-    public function getImageName() {
-      return $this->imageName;
+    public function getTopText() {
+      return $this->topText;
+    }
+
+    public function getBottomText() {
+      return $this->bottomText;
+    }
+
+    public function setBase64($data) {
+      $this->base64 = $data;
+    }
+
+    public function getBase64() {
+      return $this->base64;
     }
   }

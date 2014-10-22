@@ -16,8 +16,12 @@
 
     public function createMeme() {
       if ($this->view->didUserSubmit()) {
-        $memeID = $this->model->generateMeme($this->view->getFormData());
-        return $this->view->viewMeme($memeID);
+        $meme = $this->view->getFormData();
+        $this->model->makeMeme($meme);
+
+        // TODO Save the file to db
+
+        return $this->view->viewMeme($meme);
       }
 
       return $this->view->createMeme();

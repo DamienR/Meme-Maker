@@ -161,4 +161,16 @@
   	private function mbStrPad($input, $padLength, $padString, $padStyle, $encoding = "UTF-8") {
   		return str_pad($input, strlen($input) - mb_strlen($input, $encoding) + $padLength, $padString, $padStyle);
   	}
+
+    /**
+      * Scans the meme image folder for memes
+      *
+      * @return array - Image paths found
+      */
+    public function getImagesToChoose() {
+      $imagesDir = 'img/memes/';
+      $images = glob($imagesDir . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
+
+      return $images;
+    }
   }

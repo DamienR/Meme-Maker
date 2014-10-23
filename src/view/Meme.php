@@ -24,16 +24,14 @@
     public function getFormData() {
       // TODO Image upload size validation
 
-      if(!file_exists($_FILES[self::$fieldImageUpload]['tmp_name']) || !is_uploaded_file($_FILES[self::$fieldImageUpload]['tmp_name'])) {
-    		$_POST[self::$fieldImage] = 'img/fry.png';
-    	} else {
+      if(file_exists($_FILES[self::$fieldImageUpload]['tmp_name']) || is_uploaded_file($_FILES[self::$fieldImageUpload]['tmp_name'])) {
     		$_POST[self::$fieldImage] = $_FILES[self::$fieldImageUpload]['tmp_name'];
     	}
 
   		return new \model\Meme($_POST[self::$fieldImage], $_POST[self::$fieldTopText], $_POST[self::$fieldBottomText]);
   	}
 
-    public function createMeme() {
+    public function createMeme($imagesToChoose) {
       $ret  = "<fieldset>";
       $ret .= "<legend>Skapa en meme</legend>";
 
@@ -46,12 +44,15 @@
       $ret .= "<label for='" . self::$fieldBottomText . "'>Bottom text:</label>";
       $ret .= "<input type='text' name='" . self::$fieldBottomText . "' id='" . self::$fieldBottomText . "' value='' /><br />";
 
-      $ret .= "<br>Coming soon: A list of images to chose from<br><br>";
+      // Loop through the image array provided
+      foreach($imagesToChoose as $image) {
+        $ret .= "<input type='radio' name='" . self::$fieldImage . "' value='" . $image . "'><img src='" . $image . "'>";
+      }
 
-      $ret .= "<label for='" . self::$fieldImageUpload . "'>... OR upload Your own (optional) image file:</label>";
+      $ret .= "<br><br><label for='" . self::$fieldImageUpload . "'>... OR upload Your own (optional) image file:</label>";
       $ret .= "<input type='file' name='" . self::$fieldImageUpload . "' id='" . self::$fieldImageUpload . "' /><br />";
 
-      $ret .= "<input type='submit' value='Skapa' />";
+      $ret .= "<br><input type='submit' value='Skapa' />";
       $ret .= "</form>";
       $ret .= "</fieldset>";
 

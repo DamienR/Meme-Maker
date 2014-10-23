@@ -24,6 +24,8 @@
         return $this->view->viewMeme($meme);
       }
 
-      return $this->view->createMeme();
+      $imagesToChoose = $this->model->getImagesToChoose();
+
+      return $this->view->createMeme($imagesToChoose);
     }
   }

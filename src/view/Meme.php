@@ -22,6 +22,14 @@
     }
 
     public function getFormData() {
+      // TODO Image upload size validation
+
+      if(!file_exists($_FILES[self::$fieldImageUpload]['tmp_name']) || !is_uploaded_file($_FILES[self::$fieldImageUpload]['tmp_name'])) {
+    		$_POST[self::$fieldImage] = 'img/fry.png';
+    	} else {
+    		$_POST[self::$fieldImage] = $_FILES[self::$fieldImageUpload]['tmp_name'];
+    	}
+
   		return new \model\Meme($_POST[self::$fieldImage], $_POST[self::$fieldTopText], $_POST[self::$fieldBottomText]);
   	}
 
@@ -38,8 +46,7 @@
       $ret .= "<label for='" . self::$fieldBottomText . "'>Bottom text:</label>";
       $ret .= "<input type='text' name='" . self::$fieldBottomText . "' id='" . self::$fieldBottomText . "' value='' /><br />";
 
-      $ret .= "<label for='" . self::$fieldImage . "'>Image: (1, 2, 3)</label>";
-      $ret .= "<input type='text' name='" . self::$fieldImage . "' id='" . self::$fieldImage . "' value='img/philosoraptor.jpg' /><br />";
+      $ret .= "<br>Coming soon: A list of images to chose from<br><br>";
 
       $ret .= "<label for='" . self::$fieldImageUpload . "'>... OR upload Your own (optional) image file:</label>";
       $ret .= "<input type='file' name='" . self::$fieldImageUpload . "' id='" . self::$fieldImageUpload . "' /><br />";

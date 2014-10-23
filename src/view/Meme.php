@@ -61,17 +61,9 @@
 
     public function viewMeme(\model\Meme $meme) {
       // Show the meme in some way and share-links
-      $data = base64_decode($meme->getBase64());
-      $formImage = imagecreatefromstring($data);
+      
+      $ret = "<img alt='Embedded Image' src='data:image/png;base64," . $meme->getBase64() . "' />";
 
-      if ($formImage !== false) {
-        header('Content-Type: image/png');
-        imagepng($formImage);
-        imagedestroy($formImage);
-      } else {
-          echo 'An error occurred.';
-      }
-
-      return $formImage;
+      return $ret;
     }
   }

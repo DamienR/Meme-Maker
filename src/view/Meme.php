@@ -60,9 +60,9 @@
     }
 
     public function viewMeme(\model\Meme $meme) {
-      // Show the meme in some way and share-links
-      
       $ret = "<img alt='Embedded Image' src='data:image/png;base64," . $meme->getBase64() . "' />";
+
+      // TODO Add share links
 
       return $ret;
     }

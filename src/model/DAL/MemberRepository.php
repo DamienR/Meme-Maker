@@ -9,35 +9,35 @@
     private static $passwordRow = "password";
 
     public function __construct() {
-      $this->dbTable = "users";
+      $this->dbTable = "members";
     }
 
     /**
-      * Add a user to the db
+      * Add a member to the db
       *
-      * @param User $user - the user to save
+      * @param Member $member - the member to save
       */
-    public function addUser(User $user) {
-      if ($this->getUser($user->getName())) {
+    public function addMember(\model\Member $member) {
+      if ($this->getMember($member->getName())) {
         throw new \Exception('Användarnamn är taget.');
       }
 
       $db = $this->connection();
 
       $sql = "INSERT INTO $this->dbTable (" . self::$nameRow . ", " . self::$passwordRow . ") VALUES (?, ?)";
-		  $params = array($user->getName(), $user->getPassword());
+		  $params = array($member->getName(), $member->getPassword());
 
       $query = $db->prepare($sql);
 		  $query->execute($params);
     }
 
     /**
-      * Get a user from the db through username
+      * Get a member from the db through username
       *
-      * @param string $username - the username of the user to get
-      * @return User/Boolval - user if success or false if not
+      * @param string $username - the username of the member to get
+      * @return Member/Boolval - member if success or false if not
       */
-    public function getUser($username) {
+    public function getMember($username) {
       $db = $this->connection();
 
       $sql = "SELECT * FROM $this->dbTable WHERE " . self::$nameRow . " LIKE '%" . $username . "%'";
@@ -46,8 +46,8 @@
 
       if ($query->rowCount() > 0){
         foreach ($query->fetchAll() as $result) {
-          $user = new \model\User($result[self::$nameRow], $result[self::$passwordRow]);
-          return $user;
+          $member = new \model\Member($result[self::$nameRow], $result[self::$passwordRow]);
+          return $member;
         }
       }
 

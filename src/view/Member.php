@@ -8,8 +8,8 @@
     private static $name            = "name";
     private static $password        = "password";
     private static $password_repeat = "password_repeat";
-    private static $getLogin = "login";
-    private static $getLogout = "logout";
+    private static $getLogin        = "login";
+    private static $getLogout       = "logout";
 
     public function __construct() {
       $this->misc = new \helper\Misc();

@@ -22,9 +22,9 @@
     public function addMember() {
       if (strtolower($_SERVER['REQUEST_METHOD']) == 'post') {
         try {
-          $newUser = $this->view->getFormData();
+          $newMember = $this->view->getFormData();
 
-          //$this->MemberRepository->addUser($newUser);
+          $this->MemberRepository->addMember($newMember);
 
           $this->misc->setAlert("Registrering av ny användare lyckades.");
           //$_SESSION["Member_username"] = $newUser->getName();

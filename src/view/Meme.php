@@ -46,7 +46,7 @@
 
       // Loop through the image array provided
       foreach($imagesToChoose as $image) {
-        $ret .= "<input type='radio' name='" . self::$fieldImage . "' value='" . $image . "'><img src='" . $image . "'>";
+        $ret .= "<input type='radio' name='" . self::$fieldImage . "' id='" . $image . "' value='" . $image . "'><label for='" . $image . "'><img src='" . $image . "'></label>";
       }
 
       $ret .= "<br><br><label for='" . self::$fieldImageUpload . "'>... OR upload Your own (optional) image file:</label>";

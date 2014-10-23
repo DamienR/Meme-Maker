@@ -29,6 +29,8 @@
           $this->misc->setAlert("Registrering av ny användare lyckades.");
           //$_SESSION["Member_username"] = $newUser->getName();
 
+          // TODO Log the user in
+
           \view\Navigation::redirectHome();
         } catch (\Exception $e) {
           $this->misc->setAlert($e->getMessage());
@@ -40,28 +42,30 @@
     }
 
     public function logIn() {
-      // Check if user is logged in
       if ($this->model->userIsLoggedIn()) {
-        // Check if user pressed log out
-        if ($this->view->didUserPressLogout()) {
-          // Then log out
+        if ($this->view->didMemberPressLogout()) {
+          // user pressed logged out
           if ($this->model->logOut()) {
             // And then present the login page
             return $this->view->showLogin();
           }
         }
-
-        // Logged in and did not press log out, the show the logout page
-        return $this->view->showLogout();
       } else {
-        // Check if the user did press log out
-        if ($this->view->didUserPressLogout()) {
-          // Then show the logout page
-          return $this->view->showLogout();
-        }
+        // Check if the user did log in
+        if ($this->view->didMemberPressLogin()) {
+          // Log the user in
+          $member = $this->view->getFormData();
+          
+          $this->model->logIn($member);
 
-        // Else show the login page
-        return $this->view->showLogin();
+          // if ($this->model->logIn($_POST['username'], $_POST['password']))
+
+          // Redirect home
+          \view\Navigation::redirectHome();
+        }
       }
+
+      // Else show the login page
+      return $this->view->showLogin();
     }
   }

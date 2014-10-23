@@ -22,8 +22,11 @@
       */
     public function getFormData() {
   		if (isset($_POST[self::$name])) {
-        if ($_POST[self::$password] !== $_POST[self::$password_repeat]) {
-            throw new \Exception("Lösenorden matchar inte.");
+        // Check if the form post is from register form
+        if (isset($_POST[self::$password_repeat])) {
+          if ($_POST[self::$password] !== $_POST[self::$password_repeat]) {
+              throw new \Exception("Lösenorden matchar inte.");
+          }
         }
 
   			return new \model\Member($_POST[self::$name], $_POST[self::$password]);
@@ -75,10 +78,8 @@
 
       $ret .= "
   <form action='?action=" . Navigation::$actionLogin . "' method='post'>
-    <input type='text' name='username' placeholder='Användarnamn' value='".$username."'>
-    <input type='password' name='password' placeholder='Lösenord' value=''>
-    <label for='remember'>Håll mig inloggad:</label>
-    <input type='checkbox' id='remember' name='remember'>
+    <input type='text' name='" . self::$name . "' placeholder='Användarnamn' value='".$username."'>
+    <input type='password' name='" . self::$password . "' placeholder='Lösenord' value=''>
     <input type='submit' value='Logga in' name='login'>
   </form>";
 
@@ -90,12 +91,9 @@
       *
       * @return boolval
       */
-    public function didUserPressLogin() {
-      if (isset($_POST['username'])) {
-        if ($this->model->logIn($_POST['username'], $_POST['password'], isset($_POST['remember']))) {
-          return true;
-        }
-      }
+    public function didMemberPressLogin() {
+      if (isset($_POST[self::$name]))
+        return true;
 
       return false;
     }
@@ -105,7 +103,7 @@
       *
       * @return boolval
       */
-    public function didUserPressLogout() {
+    public function didMemberPressLogout() {
       if (isset($_GET[self::$getLogout]))
         return true;
 

@@ -32,4 +32,28 @@
       $_SESSION[self::$sessionAlert] = $string;
       return true;
     }
+
+    /**
+      * Makes the param safe from html and stuff...
+      *
+      * @param string $var - The dirty string
+      * @return string - The cleaned up string
+      */
+    public function makeSafe($var) {
+      $var = trim($var);
+      $var = stripslashes($var);
+      $var = htmlentities($var);
+      $var = strip_tags($var);
+
+      return $var;
+    }
+
+    /**
+      * Generate a unique-ish identifier
+      *
+      * @return string - The identifier encoded in sha1
+      */
+    public function setUniqueID() {
+      return sha1($_SERVER["REMOTE_ADDR"] . $_SERVER["HTTP_USER_AGENT"]);
+    }
   }

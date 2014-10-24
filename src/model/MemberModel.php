@@ -80,7 +80,8 @@
     public function logOut() {
       // Check if you really are logged in
       if (isset($_SESSION[self::$uniqueID])) {
-        unset($_SESSION[self::$uniqueID]);
+        session_unset();
+        session_destroy();
 
         // Set alert message
         $this->misc->setAlert("Du har nu loggat ut.");

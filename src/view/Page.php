@@ -18,6 +18,7 @@
       if (isset($_SESSION[\model\MemberModel::$sessionUsername])) {
         $username = $_SESSION[\model\MemberModel::$sessionUsername];
         $ret = "<h2>" . $username . " är inloggad</h2>";
+        $ret .= "<a href='?" . Navigation::$action . "=" . Navigation::$actionLogout . "'>Logga ut</a><br>";
       }
 
       $ret .= "<a href='?" . Navigation::$action . "=" . Navigation::$actionAddUser . "'>Registrera</a><br />";

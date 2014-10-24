@@ -5,6 +5,7 @@
     public  static $action           = "action";
     public  static $actionAddUser    = "register";
     public  static $actionLogin      = "login";
+    public  static $actionLogout     = "logout";
     public  static $actionIndex      = "index";
     public  static $actionCreateMeme = "generate-meme";
 

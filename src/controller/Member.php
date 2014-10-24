@@ -42,30 +42,22 @@
     }
 
     public function logIn() {
-      if ($this->model->userIsLoggedIn()) {
-        if ($this->view->didMemberPressLogout()) {
-          // user pressed logged out
-          if ($this->model->logOut()) {
-            // And then present the login page
-            return $this->view->showLogin();
-          }
-        }
-      } else {
-        // Check if the user did log in
-        if ($this->view->didMemberPressLogin()) {
-          // Log the user in
-          $member = $this->view->getFormData();
-          
-          $this->model->logIn($member);
+      if ($this->view->didMemberPressLogin()) {
+        // Get the form data and log the user in
+        $member = $this->view->getFormData();
+        $this->model->logIn($member);
 
-          // if ($this->model->logIn($_POST['username'], $_POST['password']))
-
-          // Redirect home
-          \view\Navigation::redirectHome();
-        }
+        // Redirect home
+        \view\Navigation::redirectHome();
       }
 
       // Else show the login page
       return $this->view->showLogin();
+    }
+
+    public function logOut() {
+      $this->model->logOut();
+
+      \view\Navigation::redirectHome();
     }
   }

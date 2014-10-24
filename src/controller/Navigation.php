@@ -23,6 +23,11 @@
             return $controller->logIn();
             break;
 
+          case \view\Navigation::$actionLogout:
+            $controller = new \controller\Member();
+            return $controller->logOut();
+            break;
+
           // Memes
           case \view\Navigation::$actionCreateMeme:
             $controller = new \controller\Meme();

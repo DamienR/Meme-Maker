@@ -27,9 +27,8 @@
           $this->MemberRepository->addMember($newMember);
 
           $this->misc->setAlert("Registrering av ny användare lyckades.");
-          //$_SESSION["Member_username"] = $newUser->getName();
 
-          // TODO Log the user in
+          $this->model->logIn($newMember);
 
           \view\Navigation::redirectHome();
         } catch (\Exception $e) {

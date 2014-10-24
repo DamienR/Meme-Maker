@@ -26,17 +26,25 @@
 </head>
 <body>
   <div class='container'>
-    <div class='row'>
+    <header class='row'>
       <div class='col-md-12'>
-        <a href='/' id='logo'><h1>Meme Maker!</h1></a>
+        <a href='" . \Settings::$ROOT_PATH . "' id='logo'><h1>Meme Maker!</h1></a>
       </div>
-    </div>
+    </header>
 
     <div class='row'>
-      <div class='col-md-12'>
-        " . $body . "
-      </div>
+			" . $body . "
     </div>
+    
+    <footer class='row'>
+			<div class='col-md-12'>
+				<nav>
+					<a href='" . \Settings::$ROOT_PATH . "'>Meme Maker!</a>
+					<a href='#'>Tips &  Tricks</a>
+					<a href='#'>Feedback</a>			
+				</nav>
+			</div>
+    </footer>
   </div>
 </body>
 </html>";

@@ -11,19 +11,32 @@
     }
 
     public function startPage() {
-      $ret  = "<span class='alert'>" . $this->misc->getAlert() . "</span>";
-
-      // TODO Make function to check if logged in... wait I think I
-      //      already have that
-      if (isset($_SESSION[\model\MemberModel::$sessionUsername])) {
+	    $ret = "<div class='col-md-12 startPage'>";
+	    
+			if(\Model\MemberModel::userIsLoggedIn()) {
         $username = $_SESSION[\model\MemberModel::$sessionUsername];
-        $ret = "<h2>" . $username . " är inloggad</h2>";
+        $ret .= "<h2>" . $username . " är inloggad</h2>";
         $ret .= "<a href='?" . Navigation::$action . "=" . Navigation::$actionLogout . "'>Logga ut</a><br>";
-      }
+			} else {
+				$ret .= "<div class='col-sm-4 col-md-4'><a href='?" . Navigation::$action . "=" . Navigation::$actionAddUser . "' class='callout'>Registrera</a></div>";
+				$ret .= "<div class='col-sm-4 col-md-4'><a href='?" . Navigation::$action . "=" . Navigation::$actionLogin . "' class='callout'>Logga in</a></div>";				
+			}
 
-      $ret .= "<a href='?" . Navigation::$action . "=" . Navigation::$actionAddUser . "'>Registrera</a><br />";
-      $ret .= "<a href='?" . Navigation::$action . "=" . Navigation::$actionLogin . "'>Logga in</a><br />";
-      $ret .= "<a href='?" . Navigation::$action . "=" . Navigation::$actionCreateMeme . "'>Skapa en meme</a><br />";
+      $ret .= "<div class='col-sm-4 col-md-4'><a href='?" . Navigation::$action . "=" . Navigation::$actionCreateMeme . "' class='callout'>Skapa en meme</a></div>";
+      
+      $ret .= "<div class='col-sm-4 col-md-4 meme'><img src='http://placehold.it/500x500'></div>";
+      
+      $ret .= "<div class='col-sm-4 col-md-4 meme'><img src='http://placehold.it/500x500'></div>";
+      
+      $ret .= "<div class='col-sm-4 col-md-4 meme'><img src='http://placehold.it/500x500'></div>";
+      
+      $ret .= "<div class='col-sm-4 col-md-4 meme'><img src='http://placehold.it/500x500'></div>";
+      
+      $ret .= "<div class='col-sm-4 col-md-4 meme'><img src='http://placehold.it/500x500'></div>";
+      
+      $ret .= "<div class='col-sm-4 col-md-4 meme'><img src='http://placehold.it/500x500'></div>";
+      
+      $ret .= "</div>";
 
       return $ret;
     }

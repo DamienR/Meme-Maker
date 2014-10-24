@@ -23,7 +23,7 @@
       *
       * @return boolval - Either the user is logged in or not
       */
-    public function userIsLoggedIn() {
+    public static function userIsLoggedIn() {
       if (isset($_SESSION[self::$uniqueID])) {
         // Check if session is valid
         if ($_SESSION[self::$uniqueID] === $this->misc->setUniqueID()) {

@@ -1,2 +1,83 @@
 @import "../_sass/vendor/bootstrap.css";
 @import "includes/*";
+
+body {
+	height: 100%;
+	background: $secondary;
+	background-attachment: fixed;
+	background-repeat: no-repeat; 
+	font-size: normal 100%;
+	-webkit-font-smoothing: antialiased;
+}
+
+a {
+	color: $primary;
+	font-weight: bold;
+}
+
+header {
+	margin-top: 10px;
+	margin-bottom: 30px;
+	
+	#logo {
+		display: block;
+		margin: 0 auto;
+		width: 250px;
+		height: 250px;
+		background-image: url("../img/logo.png");
+		background-size: 240px 242px;
+		background-repeat: no-repeat;
+		
+		@include retina() {
+			background-image: url("../img/logo@2x.png");
+		}
+		
+		h1 {
+			text-indent: -10000px; // Hide the text in the h1
+		}
+	}	
+}
+
+.startPage {
+	.callout {
+		display: block;
+		margin: 0;
+		margin-bottom: 15px;
+		padding: 5%;
+		width: 100%;
+		border-radius: 5px;
+		background-color: $black;
+		color: $secondary;
+		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: 0.3px;
+		font-weight: bold;
+		font-size: 1.5em;
+		
+		&:hover {
+			background-color: $grey-dark;
+			text-decoration: none;
+		}
+	}
+	
+	.meme {
+		padding: 0 15px 15px 15px;
+		
+		img {
+			width: 100%;
+			border: 10px solid $black;
+		}
+	}
+}
+
+footer {
+	margin: 15px 0 30px;
+	
+	nav {
+		text-align: center;
+		
+		a + a {
+			margin-left: 25px;
+		}
+	}
+}

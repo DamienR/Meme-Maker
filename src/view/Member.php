@@ -26,7 +26,7 @@
               throw new \Exception("Lösenorden matchar inte.");
           }
         }
-
+        
   			return new \model\Member($_POST[self::$name], $_POST[self::$password]);
   		}
 

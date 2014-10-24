@@ -1,10 +1,11 @@
 <?php
   namespace model;
 
+  require_once("src/model/DAL/MemberRepository.php");
   require_once("src/helper/Misc.php");
 
   class MemberModel {
-    private $fileStorage;
+    private $memberRepository;
     private $misc;
     private static $username = "Admin";
     private static $password = "Password";
@@ -13,6 +14,7 @@
     public  static $sessionUsername = "Login::Username";
 
     public function __construct() {
+      $this->memberRepository = new \DAL\MemberRepository();
       $this->misc = new \helper\Misc();
     }
 
@@ -41,14 +43,25 @@
       * @return boolval
       */
     public function logIn(\Model\Member $member) {
-      // Make the inputs safe to use in the code
-      $username = $this->misc->makeSafe($member->getName());
-      $password = $this->misc->makeSafe($member->getPassword());
+      // Get the database member
+      $memberDB = $this->memberRepository->getMember($member->getName());
 
-      // Check if the correct username and password is provided
-      if($username === self::$username && $password === self::$password) {
+      // Can't find hen? Then false it!
+      if (!$memberDB) {
+        return false;
+      }
+
+      // Make the inputs safe to use in the code
+      $username   = $this->misc->makeSafe($member->getName());
+      $password   = $this->misc->makeSafe($member->getPassword());
+      $usernameDB = $this->misc->makeSafe($memberDB->getName());
+      $passwordDB = $this->misc->makeSafe($memberDB->getPassword());
+
+
+      // Check if the correct password is provided
+      if($passwordDB === $password) {
         $_SESSION[self::$uniqueID] = $this->misc->setUniqueID();
-        $_SESSION[self::$sessionUsername] = $username;
+        $_SESSION[self::$sessionUsername] = $usernameDB;
 
         // Set an alert and go on
         $this->misc->setAlert("Inloggning lyckades");

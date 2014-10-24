@@ -63,6 +63,7 @@
         throw new \Exception("Lösenorden har för få tecken. Minst 6 tecken.");
 
       // TODO Encrypt password
+      // TODO Check exception
 
       $this->password = $password;
     }

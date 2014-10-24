@@ -19,10 +19,25 @@
 <html lang='sv'>
 <head>
   <meta charset='UTF-8'>
-  <title>".$title."</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>" . $title . "</title>
+
+  <link rel='stylesheet' href='css/style.css'>
 </head>
 <body>
-  ".$body."
+  <div class='container'>
+    <div class='row'>
+      <div class='col-md-12'>
+        <a href='/' id='logo'><h1>Meme Maker!</h1></a>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='col-md-12'>
+        " . $body . "
+      </div>
+    </div>
+  </div>
 </body>
 </html>";
     }

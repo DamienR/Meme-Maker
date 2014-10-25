@@ -103,6 +103,75 @@ header {
 		width: 100%;
 		border: 10px solid $black;
 	}
+	
+	.textbox {
+		padding: 10px;
+		border: 10px solid $black;
+		text-align: center;
+		
+		h2 {
+			font-size: 3em;
+			color: #1b1e21;
+			font-weight: 700;
+
+			text-transform: uppercase;
+		}
+		
+		#lol {
+			margin-top: 10px;
+			background-color: $black;
+			color: $white;
+			width: 100%;	
+			padding: 5%;
+			color: $secondary;
+			text-align: center;
+			text-transform: uppercase;
+			letter-spacing: 0.3px;
+			font-weight: bold;
+			font-size: 1.5em;
+			margin-bottom: 15px;
+			
+			&:hover {
+				opacity: 0.9;
+				text-decoration: none;
+			}
+		}	
+		
+		#link {
+			border-top: 10px solid $black;
+			border-bottom: 10px solid $black;
+			padding-top: 15px;
+			padding-bottom: 10px;
+			color: $black;
+			text-transform: uppercase;
+			
+			input[type=text] {
+				background: rgba(0, 0, 0, 0);
+				border: none;
+				margin-left: 5px;
+			}
+		}
+		
+		#create {
+			display: block;
+			margin-top: 10px;
+			background-color: $black;
+			color: $white;
+			width: 100%;	
+			padding: 1%;
+			color: $secondary;
+			text-align: center;
+			text-transform: uppercase;
+			letter-spacing: 0.3px;
+			font-weight: bold;
+			font-size: 1.5em;
+			
+			&:hover {
+				opacity: 0.9;
+				text-decoration: none;
+			}
+		}
+	}
 }
 
 footer {

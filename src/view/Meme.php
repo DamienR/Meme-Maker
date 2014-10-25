@@ -70,7 +70,16 @@
 	      $ret .= "</div>";
 	      
 	      $ret .= "<div class='col-md-6'>";
-	      	$ret .= "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>";
+	      	$ret .= "<div class='textbox'>";
+	      	
+	      		$ret .= "<h2>" . $meme->getTopText() . "<br>" . $meme->getBottomText() . "</h2>";
+	      		
+	      		$ret .= "<button class='btn' id='lol'>LOL!</button>";
+	      		
+	      		$ret .= "<p id='link'><label><span class=''>Link</span><input class='' type='text' value='http://example.com/?view=test' readonly=''></label></p>";
+	      	
+	      		$ret .= "<a href='?" . Navigation::$action . "=" . Navigation::$actionCreateMeme . "' id='create'>Make your own</button>";	      	
+	      	$ret .= "</div>";
 	      $ret .= "</div>";
       $ret .= "</div>";
 

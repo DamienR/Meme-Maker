@@ -1,7 +1,15 @@
 <?php
   namespace view;
+  
+  require_once("src/helper/Misc.php");
 
   class HTMLView {
+	  private $misc;
+	  
+	  public function __construct() {
+      $this->misc = new \helper\Misc();
+    }
+	  
     /**
       * Creates a HTML page. I blame the indentation
       * on webbrowser and PHP.
@@ -31,6 +39,8 @@
         <a href='" . \Settings::$ROOT_PATH . "' id='logo'><h1>Meme Maker!</h1></a>
       </div>
     </header>
+    
+    <span class='alert'>" . $this->misc->getAlert() . "</span>
 
     <div class='row'>
 			" . $body . "

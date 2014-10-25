@@ -58,6 +58,10 @@ header {
 			background-color: $grey-dark;
 			text-decoration: none;
 		}
+		
+		&.prime {
+			background-color: $primary;
+		}
 	}
 	
 	.meme {
@@ -66,7 +70,38 @@ header {
 		img {
 			width: 100%;
 			border: 10px solid $black;
+			
+			&:hover {
+
+			}
 		}
+	}
+}
+
+.generateMeme {
+	#imagesContainer {
+		display: block;
+		height: 150px;
+		overflow: hidden;
+		
+		.image {
+			input[type=radio] {  
+
+			}  
+			
+			img {
+				height: 150px;
+			}
+		}
+	}
+}
+
+.viewMeme {
+	padding-bottom: 15px;
+	
+	img {
+		width: 100%;
+		border: 10px solid $black;
 	}
 }
 

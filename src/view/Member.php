@@ -40,26 +40,36 @@
       */
     public function getForm() {
       $name = isset($_POST[self::$name]) ? preg_replace('/[^a-z0-9\-_\.]/i', '', $_POST[self::$name]) : '';
+      
+      $ret  = "<div class='col-md-12 viewMeme'>";
+		    $ret .= "<div class='col-md-6'>";
+					$ret .= "<form action='?action=" . Navigation::$actionAddUser . "' method='post' role='form'>";
+					
+					$ret .= "<div class='form-group'>";
+						$ret .= "<label for='" . self::$name . "'>Your name:</label>";
+						$ret .= "<input type='text' class='form-control' name='" . self::$name . "' id='" . self::$name . "' value='" . $name . "' />";
+					$ret .= "</div>";
 
-      $ret  = "<h3>Ej Inloggad, Registrerar användare</h3>";
-      $ret .= "<fieldset>";
-      $ret .= "<legend>Registrera ny användare</legend>";
-
-      $ret .= "<span class='alert'>" . $this->misc->getAlert() . "</span>";
-
-  		$ret .= "<form action='?action=" . Navigation::$actionAddUser . "' method='post'>";
-      $ret .= "<label for='" . self::$name . "'>Namn:</label>";
-  		$ret .= "<input type='text' name='" . self::$name . "' id='" . self::$name . "' value='" . $name . "' /><br />";
-
-      $ret .= "<label for='" . self::$password . "'>Lösenord:</label>";
-      $ret .= "<input type='password' name='" . self::$password . "' id='" . self::$password . "' /><br />";
-
-      $ret .= "<label for='" . self::$password_repeat . "'>Repetera lösenord:</label>";
-      $ret .= "<input type='password' name='" . self::$password_repeat . "' id='" . self::$password_repeat . "' /><br />";
-
-  		$ret .= "<input type='submit' value='Registrera' />";
-  		$ret .= "</form>";
-      $ret .= "</fieldset>";
+					$ret .= "<div class='form-group'>";
+			      $ret .= "<label for='" . self::$password . "'>A secure password:</label>";
+						$ret .= "<input type='password' class='form-control' name='" . self::$password . "' id='" . self::$password . "' />";
+					$ret .= "</div>";
+					
+					$ret .= "<div class='form-group'>";
+			      $ret .= "<label for='" . self::$password_repeat . "'>And that password one more time:</label>";
+			      $ret .= "<input type='password' class='form-control' name='" . self::$password_repeat . "' id='" . self::$password_repeat . "' />";
+					$ret .= "</div>";
+		
+		  		$ret .= "<input type='submit' value='Sign me up!' class='btn btn-default' />";
+		  		$ret .= "</form>"; 		
+	      $ret .= "</div>";
+	      
+	      $ret .= "<div class='col-md-6'>";
+	      	$ret .= "<h3>Another member? Nice!</h3>";
+	      	$ret .= "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>";
+	      $ret .= "</div>";
+      $ret .= "</div>";
+      
 
   		return $ret;
     }

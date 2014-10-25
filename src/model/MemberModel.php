@@ -26,9 +26,9 @@
     public static function userIsLoggedIn() {
       if (isset($_SESSION[self::$uniqueID])) {
         // Check if session is valid
-        if ($_SESSION[self::$uniqueID] === $this->misc->setUniqueID()) {
+        //if ($_SESSION[self::$uniqueID] === $this->misc->setUniqueID()) {
           return true;
-        }
+        //}
       }
 
       return false;

@@ -1,18 +1,11 @@
 <?php
   namespace view;
 
-  require_once("src/helper/Misc.php");
-
   class Meme {
-    private $misc;
     private static $fieldTopText = "memeTopText";
     private static $fieldBottomText = "memeBottomText";
     private static $fieldImage = "memeImage";
     private static $fieldImageUpload = "memeImageUpload";
-
-    public function __construct() {
-      $this->misc = new \helper\Misc();
-    }
 
     public function didUserSubmit() {
       if (isset($_POST[self::$fieldTopText]))
@@ -32,37 +25,45 @@
   	}
 
     public function createMeme($imagesToChoose) {
-      $ret  = "<fieldset>";
-      $ret .= "<legend>Skapa en meme</legend>";
-
-      $ret .= "<span class='alert'>" . $this->misc->getAlert() . "</span>";
+	    $ret  = "<div class='col-md-12 generateMeme'>";
 
       $ret .= "<form action='?action=" . Navigation::$actionCreateMeme . "' method='post' enctype='multipart/form-data'>";
+      
+			$ret .= "<div id='imagesContainer'>";
+	      // Loop through the image array provided
+	      foreach($imagesToChoose as $image) {
+	        $ret .= "<div class='col-md-2 image'><input type='radio' name='" . self::$fieldImage . "' id='" . $image . "' value='" . $image . "'><label for='" . $image . "'><img src='" . $image . "'></label></div>";
+	      }
+      $ret .= "</div>";
+
+
       $ret .= "<label for='" . self::$fieldTopText . "'>Top text:</label>";
       $ret .= "<input type='text' name='" . self::$fieldTopText . "' id='" . self::$fieldTopText . "' value='' /><br />";
 
       $ret .= "<label for='" . self::$fieldBottomText . "'>Bottom text:</label>";
       $ret .= "<input type='text' name='" . self::$fieldBottomText . "' id='" . self::$fieldBottomText . "' value='' /><br />";
 
-      // Loop through the image array provided
-      foreach($imagesToChoose as $image) {
-        $ret .= "<input type='radio' name='" . self::$fieldImage . "' id='" . $image . "' value='" . $image . "'><label for='" . $image . "'><img src='" . $image . "'></label>";
-      }
-
       $ret .= "<br><br><label for='" . self::$fieldImageUpload . "'>... OR upload Your own (optional) image file:</label>";
       $ret .= "<input type='file' name='" . self::$fieldImageUpload . "' id='" . self::$fieldImageUpload . "' /><br />";
 
       $ret .= "<br><input type='submit' value='Skapa' />";
       $ret .= "</form>";
-      $ret .= "</fieldset>";
+      
+      $ret .= "</div>";
 
       return $ret;
     }
 
     public function viewMeme(\model\Meme $meme) {
-      $ret = "<img alt='Embedded Image' src='data:image/png;base64," . $meme->getBase64() . "' />";
-
-      // TODO Add share links
+	    $ret  = "<div class='col-md-12 viewMeme'>";
+		    $ret .= "<div class='col-md-6'>";
+		      $ret .= "<img src='data:image/png;base64," . $meme->getBase64() . "' />";
+	      $ret .= "</div>";
+	      
+	      $ret .= "<div class='col-md-6'>";
+	      	$ret .= "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>";
+	      $ret .= "</div>";
+      $ret .= "</div>";
 
       return $ret;
     }

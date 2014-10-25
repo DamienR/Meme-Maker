@@ -113,7 +113,7 @@
 	      			$ret .= "<a class='btn' href='https://twitter.com/home?status=" . $meme->getTopText() . $meme->getBottomText() . " - " . $linkToPage . "' onclick=\"window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=570,height=280');return false;\">Twitter</a>";
 	      		$ret .= "</div>";
 	      		
-	      		$ret .= "<a href='?" . Navigation::$action . "=" . Navigation::$actionCreateMeme . "' id='create'>Make your own</button>";	      	
+	      		$ret .= "<a href='?" . Navigation::$action . "=" . Navigation::$actionCreateMeme . "' id='create'>Make your own Meme</button>";	      	
 	      	$ret .= "</div>";
 	      $ret .= "</div>";
       $ret .= "</div>";

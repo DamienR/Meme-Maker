@@ -18,7 +18,6 @@
 			
 			// Loop out the memes
 			foreach ($memeList as $meme) {
-				echo $meme->getBase64();
 	      $ret .= "<div class='col-sm-4 col-md-4 meme'><a href='?" . Navigation::$action . "=" . Navigation::$actionViewMeme . "&" . \view\Meme::$getLocation . "=" . $meme->getID() . "'>
 	      <img src='data:image/png;base64," . $meme->getBase64() . "' /></div>";
 			}

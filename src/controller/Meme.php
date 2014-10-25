@@ -38,4 +38,11 @@
 
       return $this->view->createMeme($imagesToChoose);
     }
+    
+    public function viewMeme() {
+	    $id   = $this->view->getMemeID();
+	    $meme = $this->memeRepository->getMeme($id);
+	    
+	    return $this->view->viewMeme($meme);
+    }
   }

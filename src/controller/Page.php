@@ -1,16 +1,20 @@
 <?php
   namespace controller;
-
+	
+	require_once("src/model/DAL/MemeRepository.php");
   require_once("src/view/Page.php");
 
   class Page {
+	  private $memeRepository;
     private $view;
 
     public function __construct() {
+			$this->memeRepository = new \DAL\MemeRepository();
       $this->view = new \view\Page();
     }
 
     public function general() {
-      return $this->view->startPage();
+	    $memeList = $this->memeRepository->getAllMemes();
+      return $this->view->startPage($memeList);
     }
   }

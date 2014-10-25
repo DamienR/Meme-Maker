@@ -7,7 +7,8 @@
     public  static $actionLogin      = "login";
     public  static $actionLogout     = "logout";
     public  static $actionIndex      = "index";
-    public  static $actionCreateMeme = "generate-meme";
+    public  static $actionCreateMeme = "generate";
+    public  static $actionViewMeme   = "view";
 
     /**
       * Gets the action that the user wants

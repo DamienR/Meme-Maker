@@ -5,6 +5,7 @@
   require_once("src/model/Meme.php");
 
   class MemeRepository extends Repository {
+    private static $idRow 				= "id";
     private static $userIDRow 		= "userID";
 	  private static $imageRow 			= "image";
     private static $topTextRow	  = "topText";
@@ -29,5 +30,51 @@
 
       $query = $db->prepare($sql);
 		  $query->execute($params);
+    }
+    
+    public function getMeme($id) {
+  		$db = $this->connection();
+
+  		$sql = "SELECT * FROM $this->dbTable WHERE " . self::$idRow . " = ?";
+  		$params = array($id);
+
+  		$query = $db->prepare($sql);
+  		$query->execute($params);
+
+  		$result = $query->fetch();
+
+  		if ($result) {
+	  		$meme = new \model\Meme($result[self::$imageRow], $result[self::$topTextRow], $result[self::$bottomTextRow]);
+	  		$meme->setBase64($result[self::$base64Row]);
+	  		
+  			return $meme;
+  		}
+  	}
+    
+    public function getAllMemes() {
+      $db = $this->connection();
+
+      $sql = "SELECT * FROM $this->dbTable";
+
+      $query = $db->prepare($sql);
+      $query->execute();
+     
+      $memeList = array();
+     
+      foreach($query->fetchAll() as $meme){
+	      $id 			  = $meme[self::$idRow];
+        $image 			= $meme[self::$imageRow];
+        $topText 		= $meme[self::$topTextRow];
+        $bottomText = $meme[self::$bottomTextRow];
+        $base64 		= $meme[self::$base64Row];
+
+        $meme = new \model\Meme($image, $topText, $bottomText);
+        $meme->setID($id);
+        $meme->setBase64($base64);
+
+        $memeList[] = $meme;
+      }
+
+      return $memeList;
     }
   }

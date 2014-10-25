@@ -55,7 +55,7 @@ header {
 		font-size: 1.5em;
 		
 		&:hover {
-			background-color: $grey-dark;
+			opacity: 0.9;
 			text-decoration: none;
 		}
 		
@@ -72,7 +72,7 @@ header {
 			border: 10px solid $black;
 			
 			&:hover {
-
+				opacity: 0.9;
 			}
 		}
 	}

@@ -2,10 +2,19 @@
   namespace view;
 
   class Meme {
-    private static $fieldTopText = "memeTopText";
-    private static $fieldBottomText = "memeBottomText";
-    private static $fieldImage = "memeImage";
+    private static $fieldTopText 		 = "memeTopText";
+    private static $fieldBottomText  = "memeBottomText";
+    private static $fieldImage 			 = "memeImage";
     private static $fieldImageUpload = "memeImageUpload";
+    public  static $getLocation 		 = "id";
+    
+    public function getMemeID() {
+  		if (isset($_GET[self::$getLocation])) {
+  			return $_GET[self::$getLocation];
+  		}
+
+  		return NULL;
+  	}
 
     public function didUserSubmit() {
       if (isset($_POST[self::$fieldTopText]))
@@ -57,7 +66,7 @@
     public function viewMeme(\model\Meme $meme) {
 	    $ret  = "<div class='col-md-12 viewMeme'>";
 		    $ret .= "<div class='col-md-6'>";
-		      $ret .= "<img src='data:image/png;base64," . $meme->getBase64() . "' />";
+		      $ret .= "<img src='data:image/png;base64," . $meme->getBase64() . "'>";
 	      $ret .= "</div>";
 	      
 	      $ret .= "<div class='col-md-6'>";

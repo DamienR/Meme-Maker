@@ -33,6 +33,11 @@
             $controller = new \controller\Meme();
             return $controller->createMeme();
             break;
+            
+					case \view\Navigation::$actionViewMeme:
+            $controller = new \controller\Meme();
+            return $controller->viewMeme();
+            break;
 
           // Pages
           default:

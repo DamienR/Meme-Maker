@@ -2,6 +2,7 @@
   namespace model;
 
   class Meme {
+	  private $id;
     private $topText;
     private $bottomText;
     private $image;
@@ -15,9 +16,13 @@
       $this->bottomText = $bottomText;
     }
 
-    public function getImage() {
-      return $this->image;
-    }
+		public function setID($id) {
+			$this->id = $id;
+		}
+		
+		public function getID() {
+			return $this->id;
+		}
 
     public function getTopText() {
       return $this->topText;
@@ -25,6 +30,11 @@
 
     public function getBottomText() {
       return $this->bottomText;
+    }
+
+
+    public function getImage() {
+      return $this->image;
     }
 
     public function setBase64($data) {

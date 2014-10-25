@@ -38,24 +38,35 @@
 
       $ret .= "<form action='?action=" . Navigation::$actionCreateMeme . "' method='post' enctype='multipart/form-data'>";
       
-			$ret .= "<div id='imagesContainer'>";
-	      // Loop through the image array provided
-	      foreach($imagesToChoose as $image) {
-	        $ret .= "<div class='col-md-2 image'><input type='radio' name='" . self::$fieldImage . "' id='" . $image . "' value='" . $image . "'><label for='" . $image . "'><img src='" . $image . "'></label></div>";
-	      }
+      $ret .= "<div class='col-md-6'>";
+	      $ret .= "<div class='textbox'>";    
+					$ret .= "<div class='form-group'>";
+			      $ret .= "<input type='text' class='form-control' name='" . self::$fieldTopText . "' id='" . self::$fieldTopText . "' placeholder='TOP' />";
+		      $ret .= "</div>";
+		
+					$ret .= "<div class='form-group'>";
+			      $ret .= "<input type='text' class='form-control' name='" . self::$fieldBottomText . "' id='" . self::$fieldBottomText . "' placeholder='BOTTOM' />";
+		      $ret .= "</div>";
+		      
+					$ret .= "<div class='form-group'>";
+		  	    $ret .= "<label for='" . self::$fieldImageUpload . "'>... OR upload Your own (optional) image file:</label>";
+						$ret .= "<input type='file' class='form-control' name='" . self::$fieldImageUpload . "' id='" . self::$fieldImageUpload . "' />";
+		      $ret .= "</div>";
+		
+		      $ret .= "<input type='submit' value='Skapa' class='btn btn-default' />";
+	      $ret .= "</div>";	      
       $ret .= "</div>";
+     
+      $ret .= "<div class='col-md-6'>";
+	      $ret .= "<div id='imagesContainer'>";
+		      // Loop through the image array provided
+		      foreach($imagesToChoose as $image) {
+			      $ret .= "<div class='col-md-4 image'><label><input type='radio' name='" . self::$fieldImage . "' id='" . $image . "' value='" . $image . "'><img src='" . $image . "'></label></div>";
+		      }
+	      $ret .= "</div>";
+			$ret .= "</div>";
 
-
-      $ret .= "<label for='" . self::$fieldTopText . "'>Top text:</label>";
-      $ret .= "<input type='text' name='" . self::$fieldTopText . "' id='" . self::$fieldTopText . "' value='' /><br />";
-
-      $ret .= "<label for='" . self::$fieldBottomText . "'>Bottom text:</label>";
-      $ret .= "<input type='text' name='" . self::$fieldBottomText . "' id='" . self::$fieldBottomText . "' value='' /><br />";
-
-      $ret .= "<br><br><label for='" . self::$fieldImageUpload . "'>... OR upload Your own (optional) image file:</label>";
-      $ret .= "<input type='file' name='" . self::$fieldImageUpload . "' id='" . self::$fieldImageUpload . "' /><br />";
-
-      $ret .= "<br><input type='submit' value='Skapa' />";
+      
       $ret .= "</form>";
       
       $ret .= "</div>";

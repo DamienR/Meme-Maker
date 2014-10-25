@@ -107,13 +107,22 @@ header {
 		height: 150px;
 		overflow: hidden;
 		
-		.image {
-			input[type=radio] {  
-
-			}  
+		.image {			
+			label > input{ /* HIDE RADIO */
+			  display: none;
+			}
 			
+			label > input + img{ /* IMAGE STYLES */
+			  cursor: pointer;
+			  border: 5px solid $black;
+			}
+			
+			label > input:checked + img{ /* (CHECKED) IMAGE STYLES */
+			  border: 5px solid $primary;
+			}
+						
 			img {
-				height: 150px;
+				width: 100%;
 			}
 		}
 	}

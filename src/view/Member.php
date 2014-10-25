@@ -41,32 +41,36 @@
     public function getForm() {
       $name = isset($_POST[self::$name]) ? preg_replace('/[^a-z0-9\-_\.]/i', '', $_POST[self::$name]) : '';
       
-      $ret  = "<div class='col-md-12 viewMeme'>";
+      $ret  = "<div class='col-md-12 register'>";
 		    $ret .= "<div class='col-md-6'>";
-					$ret .= "<form action='?action=" . Navigation::$actionAddUser . "' method='post' role='form'>";
-					
-					$ret .= "<div class='form-group'>";
-						$ret .= "<label for='" . self::$name . "'>Your name:</label>";
-						$ret .= "<input type='text' class='form-control' name='" . self::$name . "' id='" . self::$name . "' value='" . $name . "' />";
-					$ret .= "</div>";
-
-					$ret .= "<div class='form-group'>";
-			      $ret .= "<label for='" . self::$password . "'>A secure password:</label>";
-						$ret .= "<input type='password' class='form-control' name='" . self::$password . "' id='" . self::$password . "' />";
-					$ret .= "</div>";
-					
-					$ret .= "<div class='form-group'>";
-			      $ret .= "<label for='" . self::$password_repeat . "'>And that password one more time:</label>";
-			      $ret .= "<input type='password' class='form-control' name='" . self::$password_repeat . "' id='" . self::$password_repeat . "' />";
-					$ret .= "</div>";
-		
-		  		$ret .= "<input type='submit' value='Sign me up!' class='btn btn-default' />";
-		  		$ret .= "</form>"; 		
+		    	$ret .= "<div class='form'>";
+						$ret .= "<form action='?action=" . Navigation::$actionAddUser . "' method='post' role='form'>";
+						
+						$ret .= "<div class='form-group'>";
+							$ret .= "<label for='" . self::$name . "'>Your name:</label>";
+							$ret .= "<input type='text' class='form-control' name='" . self::$name . "' id='" . self::$name . "' value='" . $name . "' />";
+						$ret .= "</div>";
+	
+						$ret .= "<div class='form-group'>";
+				      $ret .= "<label for='" . self::$password . "'>A secure password:</label>";
+							$ret .= "<input type='password' class='form-control' name='" . self::$password . "' id='" . self::$password . "' />";
+						$ret .= "</div>";
+						
+						$ret .= "<div class='form-group'>";
+				      $ret .= "<label for='" . self::$password_repeat . "'>And that password one more time:</label>";
+				      $ret .= "<input type='password' class='form-control' name='" . self::$password_repeat . "' id='" . self::$password_repeat . "' />";
+						$ret .= "</div>";
+			
+			  		$ret .= "<input type='submit' value='Sign me up!' class='btn btn-default' />";
+			  		$ret .= "</form>"; 		
+		  		$ret .= "</div>";
 	      $ret .= "</div>";
 	      
 	      $ret .= "<div class='col-md-6'>";
-	      	$ret .= "<h3>Another member? Nice!</h3>";
-	      	$ret .= "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>";
+		      $ret .= "<div class='textbox'>";
+		      	$ret .= "<h2>Another member? Nice!</h2>";
+						$ret .= "<p>You're going to love to make memes here. And every meme you make from now on, when you are logged in, get's saved into your own gallery for safe keeping.</p><p>So what are you waiting for?</p>";
+					$ret .= "</div>";
 	      $ret .= "</div>";
       $ret .= "</div>";
       

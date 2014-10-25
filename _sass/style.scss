@@ -15,6 +15,11 @@ a {
 	font-weight: bold;
 }
 
+.textbox {
+	padding: 10px;
+	border: 10px solid $black;
+}
+
 header {
 	margin-top: 10px;
 	margin-bottom: 30px;
@@ -78,6 +83,24 @@ header {
 	}
 }
 
+.register {
+	.form {
+		padding: 10px;
+		border: 10px solid $black;
+		margin-bottom: 15px;
+	}
+	
+	.textbox {
+		h2 {
+			margin-top: 10px;
+			font-size: 2em;
+			color: #1b1e21;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+	}
+}
+
 .generateMeme {
 	#imagesContainer {
 		display: block;
@@ -102,18 +125,16 @@ header {
 	img {
 		width: 100%;
 		border: 10px solid $black;
+		margin-bottom: 15px;
 	}
-	
+			
 	.textbox {
-		padding: 10px;
-		border: 10px solid $black;
-		text-align: center;
-		
+		text-align: center;	
+				
 		h2 {
-			font-size: 3em;
+			font-size: 2.5em;
 			color: #1b1e21;
 			font-weight: 700;
-
 			text-transform: uppercase;
 		}
 		

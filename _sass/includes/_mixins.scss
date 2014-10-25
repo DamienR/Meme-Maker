@@ -26,3 +26,15 @@
     @media (max-width: 1330px)  { @content; }
   }
 }
+
+@mixin clear() {
+	&:before, &:after {
+	    content: "\0020";
+	    display: block;
+	    height: 0;
+	    overflow: hidden;
+	}
+	&:after {
+	    clear: both;
+	}
+}

@@ -42,12 +42,12 @@
       $name = isset($_POST[self::$name]) ? preg_replace('/[^a-z0-9\-_\.]/i', '', $_POST[self::$name]) : '';
       
       $ret  = "<div class='col-md-12 register'>";
-		    $ret .= "<div class='col-md-6'>";
+		    $ret .= "<div class='col-sm-6 col-md-6'>";
 		    	$ret .= "<div class='form'>";
 						$ret .= "<form action='?action=" . Navigation::$actionAddUser . "' method='post' role='form'>";
 						
 						$ret .= "<div class='form-group'>";
-							$ret .= "<label for='" . self::$name . "'>Your name:</label>";
+							$ret .= "<label for='" . self::$name . "'>A sweet username:</label>";
 							$ret .= "<input type='text' class='form-control' name='" . self::$name . "' id='" . self::$name . "' value='" . $name . "' />";
 						$ret .= "</div>";
 	
@@ -66,7 +66,7 @@
 		  		$ret .= "</div>";
 	      $ret .= "</div>";
 	      
-	      $ret .= "<div class='col-md-6'>";
+	      $ret .= "<div class='col-sm-6 col-md-6'>";
 		      $ret .= "<div class='textbox'>";
 		      	$ret .= "<h2>Another member? Nice!</h2>";
 						$ret .= "<p>You're going to love to make memes here. And every meme you make from now on, when you are logged in, get's saved into your own gallery for safe keeping.</p><p>So what are you waiting for?</p>";
@@ -86,14 +86,25 @@
     public function showLogin() {
       $username = empty($_POST['username']) ? '' : $_POST['username'];
 
-      $ret = "<span class='alert'>" . $this->misc->getAlert() . "</span>";
-
-      $ret .= "
-  <form action='?action=" . Navigation::$actionLogin . "' method='post'>
-    <input type='text' name='" . self::$name . "' placeholder='Användarnamn' value='".$username."'>
-    <input type='password' name='" . self::$password . "' placeholder='Lösenord' value=''>
-    <input type='submit' value='Logga in' name='login'>
-  </form>";
+      $ret  = "<div class='col-md-12 login'>";
+		    $ret .= "<div class='col-sm-6 col-md-6 textbox'>";
+					$ret .= "<form action='?action=" . Navigation::$actionLogin . "' method='post'>";
+					
+					$ret .= "<div class='form-group'>";
+						$ret .= "<label for='" . self::$name . "'>Your username:</label>";
+						$ret .= "<input type='text' class='form-control' name='" . self::$name . "' id='" . self::$name . "' value='" . $username . "' />";
+					$ret .= "</div>";
+					
+					$ret .= "<div class='form-group'>";
+						$ret .= "<label for='" . self::$password . "'>The super secret password:</label>";
+						$ret .= "<input type='password' class='form-control' name='" . self::$password . "' id='" . self::$password . "' />";
+					$ret .= "</div>";
+					
+		  		$ret .= "<input type='submit' value='Log in!' class='btn btn-default' />";
+		 		$ret .= "</form>"; 		
+		  $ret .= "</div>";
+  
+  		$ret .= "<div class='col-sm-6 col-md-6 meme'><img src='img/login.png'></div>";
 
       return $ret;
     }

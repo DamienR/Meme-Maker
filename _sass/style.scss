@@ -38,6 +38,10 @@ header {
 			background-image: url("../img/logo@2x.png");
 		}
 		
+		&:hover {
+			opacity: 0.9;
+		}
+		
 		h1 {
 			text-indent: -10000px; // Hide the text in the h1
 		}
@@ -94,11 +98,24 @@ header {
 	.textbox {
 		h2 {
 			margin-top: 10px;
-			font-size: 2em;
+			font-size: 1.8em;
 			color: #1b1e21;
 			font-weight: 700;
 			text-transform: uppercase;
 		}
+	}
+}
+
+.login {
+	margin-bottom: 15px;
+	
+	.textbox {
+		margin-bottom: 15px;
+	}
+	
+	.meme img {
+		width: 100%;
+		border: 10px solid $black;	
 	}
 }
 
@@ -178,6 +195,34 @@ header {
 				background: rgba(0, 0, 0, 0);
 				border: none;
 				margin-left: 5px;
+			}
+		}
+		
+		#share {
+			border-bottom: 10px solid $black;
+			padding-bottom: 10px;
+			
+			@include clear();
+			
+			.btn {
+				float: left;
+				display: block;
+				background-color: $black;
+				color: $white;
+				width: 49%;	
+				margin-left: 1%;
+				padding: 1%;
+				color: $secondary;
+				text-align: center;
+				text-transform: uppercase;
+				letter-spacing: 0.3px;
+				font-weight: bold;
+				font-size: 1.5em;
+				
+				&:hover {
+					opacity: 0.9;
+					text-decoration: none;
+				}
 			}
 		}
 		

@@ -38,8 +38,10 @@
 
       $ret .= "<form action='?action=" . Navigation::$actionCreateMeme . "' method='post' enctype='multipart/form-data'>";
       
-      $ret .= "<div class='col-md-6'>";
+      $ret .= "<div class='col-sm-6 col-md-6'>";
 	      $ret .= "<div class='textbox'>";    
+	    		$ret .= "<label>Choose a funny image to the right and fill in the text below:</label>"; 
+	    		
 					$ret .= "<div class='form-group'>";
 			      $ret .= "<input type='text' class='form-control' name='" . self::$fieldTopText . "' id='" . self::$fieldTopText . "' placeholder='TOP' />";
 		      $ret .= "</div>";
@@ -49,7 +51,7 @@
 		      $ret .= "</div>";
 		      
 					$ret .= "<div class='form-group'>";
-		  	    $ret .= "<label for='" . self::$fieldImageUpload . "'>... OR upload Your own (optional) image file:</label>";
+		  	    $ret .= "<label for='" . self::$fieldImageUpload . "'>... OR upload Your own image file:</label>";
 						$ret .= "<input type='file' class='form-control' name='" . self::$fieldImageUpload . "' id='" . self::$fieldImageUpload . "' />";
 		      $ret .= "</div>";
 		
@@ -57,11 +59,11 @@
 	      $ret .= "</div>";	      
       $ret .= "</div>";
      
-      $ret .= "<div class='col-md-6'>";
+      $ret .= "<div class='col-sm-6 col-md-6'>";
 	      $ret .= "<div id='imagesContainer'>";
 		      // Loop through the image array provided
 		      foreach($imagesToChoose as $image) {
-			      $ret .= "<div class='col-md-4 image'><label><input type='radio' name='" . self::$fieldImage . "' id='" . $image . "' value='" . $image . "'><img src='" . $image . "'></label></div>";
+			      $ret .= "<div class='col-sm-6 col-md-4 image'><label><input type='radio' name='" . self::$fieldImage . "' id='" . $image . "' value='" . $image . "'><img src='" . $image . "'></label></div>";
 		      }
 	      $ret .= "</div>";
 			$ret .= "</div>";
@@ -75,6 +77,8 @@
     }
 
     public function viewMeme(\model\Meme $meme) {
+	    $linkToPage = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . "?" . Navigation::$action . "=" . Navigation::$actionViewMeme . "&" . \view\Meme::$getLocation . "=" . $meme->getID();
+	    
 	    $ret  = "<div class='col-md-12 viewMeme'>";
 		    $ret .= "<div class='col-md-6'>";
 		      $ret .= "<img src='data:image/png;base64," . $meme->getBase64() . "'>";
@@ -86,9 +90,15 @@
 	      		$ret .= "<h2>" . $meme->getTopText() . "<br>" . $meme->getBottomText() . "</h2>";
 	      		
 	      		$ret .= "<button class='btn' id='lol'>LOL!</button>";
+	      		$ret .= "<span id='lols'>:) 22</span>";
 	      		
-	      		$ret .= "<p id='link'><label><span class=''>Link</span><input class='' type='text' value='http://example.com/?view=test' readonly=''></label></p>";
-	      	
+	      		$ret .= "<p id='link'><label><span class=''>Link</span><input class='' type='text' value='" . $linkToPage . "' readonly=''></label></p>";
+	      		
+	      		$ret .= "<div id='share'>";
+	      			$ret .= "<a class='btn' href='https://www.facebook.com/sharer/sharer.php?u=" . $linkToPage . "' onclick=\"window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=570,height=280');return false;\">Facebook</a>";
+	      			$ret .= "<a class='btn' href='https://twitter.com/home?status=" . $meme->getTopText() . $meme->getBottomText() . " - " . $linkToPage . "' onclick=\"window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=570,height=280');return false;\">Twitter</a>";
+	      		$ret .= "</div>";
+	      		
 	      		$ret .= "<a href='?" . Navigation::$action . "=" . Navigation::$actionCreateMeme . "' id='create'>Make your own</button>";	      	
 	      	$ret .= "</div>";
 	      $ret .= "</div>";

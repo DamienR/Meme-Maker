@@ -75,6 +75,20 @@
 
       return $ret;
     }
+    
+    public function viewGallery($memeList) {
+	    $ret = "<div class='col-md-12 startPage'>";
+	   	
+	   	// Loop out the memes
+			foreach (array_reverse($memeList) as $meme) {
+	      $ret .= "<div class='col-sm-4 col-md-4 meme'><a href='?" . Navigation::$action . "=" . Navigation::$actionViewMeme . "&" . \view\Meme::$getLocation . "=" . $meme->getID() . "'>
+	      <img src='data:image/png;base64," . $meme->getBase64() . "' /></div>";
+			}
+      
+      $ret .= "</div>";
+
+      return $ret; 
+    }
 
     public function viewMeme(\model\Meme $meme) {
 	    $linkToPage = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . "?" . Navigation::$action . "=" . Navigation::$actionViewMeme . "&" . \view\Meme::$getLocation . "=" . $meme->getID();

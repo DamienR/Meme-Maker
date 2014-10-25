@@ -10,7 +10,7 @@
     private static $username = "Admin";
     private static $password = "Password";
 
-    private static $uniqueID        = "Login::UniqueID";
+ 		public static  $sessionUserID   = "Login::UserID";
     public  static $sessionUsername = "Login::Username";
 
     public function __construct() {
@@ -24,7 +24,7 @@
       * @return boolval - Either the user is logged in or not
       */
     public static function userIsLoggedIn() {
-      if (isset($_SESSION[self::$uniqueID])) {
+      if (isset($_SESSION[self::$sessionUserID])) {
         // Check if session is valid
         //if ($_SESSION[self::$uniqueID] === $this->misc->setUniqueID()) {
           return true;
@@ -33,7 +33,7 @@
 
       return false;
     }
-
+   
     /**
       * Log in the user
       *
@@ -56,12 +56,13 @@
       $password   = $this->misc->makeSafe($member->getPassword());
       $usernameDB = $this->misc->makeSafe($memberDB->getName());
       $passwordDB = $this->misc->makeSafe($memberDB->getPassword());
+      $userID     = $this->misc->makeSafe($memberDB->getID());
 
 
       // Check if the correct password is provided
       if($passwordDB === $password) {
-        $_SESSION[self::$uniqueID] = $this->misc->setUniqueID();
         $_SESSION[self::$sessionUsername] = $usernameDB;
+        $_SESSION[self::$sessionUserID] = $userID;
 
         // Set an alert and go on
         $this->misc->setAlert("Inloggning lyckades");
@@ -92,7 +93,7 @@
       */
     public function logOut() {
       // Check if you really are logged in
-      if (isset($_SESSION[self::$uniqueID])) {
+      if (isset($_SESSION[self::$sessionUserID])) {
         session_unset();
         session_destroy();
 

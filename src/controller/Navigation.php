@@ -38,6 +38,11 @@
             $controller = new \controller\Meme();
             return $controller->viewMeme();
             break;
+            
+					case \view\Navigation::$actionViewGallery:
+            $controller = new \controller\Meme();
+            return $controller->viewGallery();
+            break;
 
           // Pages
           default:

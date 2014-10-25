@@ -8,10 +8,20 @@
     private static $name            = "name";
     private static $password        = "password";
     private static $password_repeat = "password_repeat";
+		public  static $getLocation 		 = "id";
 
     public function __construct() {
       $this->misc = new \helper\Misc();
     }
+
+    public static function getMemberID() {
+  		if (isset($_GET[self::$getLocation])) {
+  			return $_GET[self::$getLocation];
+  		}
+
+  		return NULL;
+  	}
+
 
     /**
       * Gets the formdata that's posted

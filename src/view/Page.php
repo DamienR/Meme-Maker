@@ -7,7 +7,9 @@
 	    
 			if(\Model\MemberModel::userIsLoggedIn()) {
         $username = $_SESSION[\model\MemberModel::$sessionUsername];
-        $ret .= "<div class='col-sm-4 col-md-4'><a href='#' class='callout'>My gallery</a></div>";
+        $userID   = $_SESSION[\model\MemberModel::$sessionUserID];
+        
+        $ret .= "<div class='col-sm-4 col-md-4'><a href='?" . Navigation::$action . "=" . Navigation::$actionViewGallery . "&" . \view\Meme::$getLocation . "=" . $userID . "' class='callout'>My gallery</a></div>";
         $ret .= "<div class='col-sm-4 col-md-4'><a href='?" . Navigation::$action . "=" . Navigation::$actionCreateMeme . "' class='callout prime'>Make a meme!</a></div>";
         $ret .= "<div class='col-sm-4 col-md-4'><a href='?" . Navigation::$action . "=" . Navigation::$actionLogout . "' class='callout'>Log out</a></div>";
 			} else {

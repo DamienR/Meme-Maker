@@ -5,7 +5,8 @@
   require_once("src/model/Member.php");
 
   class MemberRepository extends Repository {
-    private static $nameRow = "name";
+	  private static $idRow 			= "id";
+    private static $nameRow 		= "name";
     private static $passwordRow = "password";
 
     public function __construct() {
@@ -46,7 +47,7 @@
 
       if ($query->rowCount() > 0){
         foreach ($query->fetchAll() as $result) {
-          $member = new \model\Member($result[self::$nameRow], $result[self::$passwordRow]);
+          $member = new \model\Member($result[self::$nameRow], $result[self::$passwordRow], $result[self::$idRow]);
           return $member;
         }
       }

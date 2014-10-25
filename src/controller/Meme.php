@@ -24,7 +24,7 @@
 
 				// Save the meme to the db
         if(\Model\MemberModel::userIsLoggedIn()) {
-	      	$userID = 1;
+	      	$userID = $_SESSION[\model\MemberModel::$sessionUserID];
 	      } else {
 		      $userID = null;
 	      }
@@ -44,5 +44,12 @@
 	    $meme = $this->memeRepository->getMeme($id);
 	    
 	    return $this->view->viewMeme($meme);
+    }
+    
+    public function viewGallery() {
+	    $id       = \View\Member::getMemberID();
+	    $memeList = $this->memeRepository->getMembersMemes($id);
+	    
+	    return $this->view->viewGallery($memeList);
     }
   }

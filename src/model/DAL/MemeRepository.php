@@ -77,4 +77,32 @@
 
       return $memeList;
     }
+    
+    public function getMembersMemes($id) {
+      $db = $this->connection();
+
+      $sql = "SELECT * FROM $this->dbTable WHERE " . self::$userIDRow . " = ?";
+      $params = array($id);
+
+      $query = $db->prepare($sql);
+      $query->execute($params);
+
+      $memeList = array();
+     
+      foreach($query->fetchAll() as $meme){
+	      $id 			  = $meme[self::$idRow];
+        $image 			= $meme[self::$imageRow];
+        $topText 		= $meme[self::$topTextRow];
+        $bottomText = $meme[self::$bottomTextRow];
+        $base64 		= $meme[self::$base64Row];
+
+        $meme = new \model\Meme($image, $topText, $bottomText);
+        $meme->setID($id);
+        $meme->setBase64($base64);
+
+        $memeList[] = $meme;
+      }
+
+      return $memeList;
+    }
   }

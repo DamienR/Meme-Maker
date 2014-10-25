@@ -2,13 +2,18 @@
   namespace model;
 
   class Member {
+	  private $id;
     private $name;
     private $password;
     private $passwordHash;
 
-    public function __construct($name, $password) {
+    public function __construct($name, $password, $id = null) {	    
       $this->setName($name);
       $this->setPassword($password);
+      
+			if ($id != null) {
+		    $this->id = $id;
+	    }
     }
 
     /**
@@ -80,5 +85,9 @@
         return true;
 
       return false;
+    }
+    
+    public function getID() {
+	    return $this->id;
     }
   }

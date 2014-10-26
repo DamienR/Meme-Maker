@@ -7,12 +7,16 @@
     private $password;
     private $passwordHash;
 
-    public function __construct($name, $password, $id = null) {	    
+    public function __construct($name, $password, $id = null, $passwordHash = null) {	    
       $this->setName($name);
       $this->setPassword($password);
       
 			if ($id != null) {
 		    $this->id = $id;
+	    }
+	    
+	    if ($passwordHash != null) {
+		  	$this->passwordHash = $passwordHash;
 	    }
     }
         
@@ -60,10 +64,14 @@
 
       if ($length < 4)
         throw new \Exception("We want safe passwords. So more then 4 characters please.");
-
-      // TODO Encrypt password
-      // TODO Check exception
+        
+      // Encrypt the password
+      $password = sha1($password);
 
       $this->password = $password;
+    }
+    
+    public function getPasswordHash() {
+	    return $this->passwordHash;
     }
   }

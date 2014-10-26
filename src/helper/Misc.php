@@ -66,7 +66,7 @@
       *
       * @return string - The identifier encoded in sha1
       */
-    public function setUniqueID() {
+    public static function setUniqueID() {
       return sha1($_SERVER["REMOTE_ADDR"] . $_SERVER["HTTP_USER_AGENT"]);
     }
   }

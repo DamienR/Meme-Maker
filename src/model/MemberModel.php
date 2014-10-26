@@ -10,8 +10,9 @@
     private static $username = "Admin";
     private static $password = "Password";
 
- 		public  static $sessionUserID   = "Login::UserID";
-    public  static $sessionUsername = "Login::Username";
+		public static $uniqueID        = "Login::UniqueID";
+ 		public static $sessionUserID   = "Login::UserID";
+    public static $sessionUsername = "Login::Username";
 
     public function __construct() {
       $this->memberRepository = new \DAL\MemberRepository();
@@ -25,7 +26,12 @@
       */
     public static function userIsLoggedIn() {
       if (isset($_SESSION[self::$sessionUserID])) {
-				return true;
+	      // Check if the user is the real user
+	      if ($_SESSION[self::$uniqueID] === \Helper\Misc::setUniqueID()) {
+					return true;
+				} else {
+					\Model\MemberModel::logOut();
+				}
       }
 
       return false;
@@ -52,31 +58,16 @@
       $username   = $this->misc->makeSafe($member->getName());
       $password   = $this->misc->makeSafe($member->getPassword());
       $usernameDB = $this->misc->makeSafe($memberDB->getName());
-      $passwordDB = $this->misc->makeSafe($memberDB->getPassword());
+      $passwordDB = $this->misc->makeSafe($memberDB->getPasswordHash());
       $userID     = $this->misc->makeSafe($memberDB->getID());
-
 
       // Check if the correct password is provided
       if($passwordDB === $password) {
+	      $_SESSION[self::$uniqueID] = $this->misc->setUniqueID();
         $_SESSION[self::$sessionUsername] = $usernameDB;
         $_SESSION[self::$sessionUserID] = $userID;
 
         return true;
-      }
-      
-      // If the provided username/password is wrong, check what kind of error the user has made
-      if (empty($username)) {
-        $this->misc->setAlert("Username is missing.");
-        return false;
-      } else if (empty($password)) {
-        $this->misc->setAlert("Password is missing");
-        return false;
-      } else if ($username != self::$username XOR $password != self::$password) {
-        $this->misc->setAlert("Wrong username and/or password");
-        return false;
-      } else {
-        $this->misc->setAlert("Something wrong happened. Try again.");
-        return false;
       }
     }
 
@@ -85,7 +76,7 @@
       *
       * @return boolval
       */
-    public function logOut() {
+    public static function logOut() {
       // Check if you really are logged in
       if (isset($_SESSION[self::$sessionUserID])) {
         session_unset();

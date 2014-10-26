@@ -40,11 +40,15 @@
       */
     public function getFormData() {
       if(file_exists($_FILES[self::$fieldImageUpload]['tmp_name']) || is_uploaded_file($_FILES[self::$fieldImageUpload]['tmp_name'])) {
-	      if ((400 * 1024) < filesize($_FILES[self::$fieldImageUpload]['tmp_name'])) {
-	    		throw new \Exception("That's a huge image bro. No way.");	
-    		}
+		    $imagesizedata = getimagesize($_FILES[self::$fieldImageUpload]['tmp_name']);
+		    
+				if ($imagesizedata != FALSE) {
+					if ((400 * 1024) < filesize($_FILES[self::$fieldImageUpload]['tmp_name'])) {
+	    			throw new \Exception("That's a huge image bro. No way.");	
+    			}
     		
-    		$_POST[self::$fieldImage] = $_FILES[self::$fieldImageUpload]['tmp_name'];
+					$_POST[self::$fieldImage] = $_FILES[self::$fieldImageUpload]['tmp_name'];
+				}
     	}
     	
     	if (!isset($_POST[self::$fieldImage])) {

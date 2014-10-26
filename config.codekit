@@ -77,7 +77,7 @@
 		"outputAbbreviatedPath": "\/img\/favicon.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"processed": 0
+		"processed": 1
 		},
 	"\/img\/icon.png": {
 		"fileType": 32768,
@@ -88,7 +88,7 @@
 		"outputAbbreviatedPath": "\/img\/icon.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"processed": 0
+		"processed": 1
 		},
 	"\/img\/login.png": {
 		"fileType": 32768,
@@ -110,7 +110,7 @@
 		"outputAbbreviatedPath": "\/img\/logo.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"processed": 0
+		"processed": 1
 		},
 	"\/img\/logo@2x.png": {
 		"fileType": 32768,
@@ -121,7 +121,7 @@
 		"outputAbbreviatedPath": "\/img\/logo@2x.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"processed": 0
+		"processed": 1
 		},
 	"\/img\/memes\/1bij.jpg": {
 		"fileType": 16384,

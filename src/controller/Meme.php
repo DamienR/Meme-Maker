@@ -5,16 +5,19 @@
   require_once("src/model/MemeModel.php");
   require_once("src/model/Meme.php");
   require_once("src/view/Meme.php");
-
+  require_once("src/helper/Misc.php");
+  
   class Meme {
 	  private $memeRepository;
     private $model;
     private $view;
+    private $misc;
 
     public function __construct() {
 	    $this->memeRepository = new \DAL\MemeRepository();
       $this->model = new \model\MemeModel();
       $this->view  = new \view\Meme();
+      $this->misc = new \helper\Misc();
     }
 
     public function createMeme() {
@@ -51,5 +54,17 @@
 	    $memeList = $this->memeRepository->getMembersMemes($id);
 	    
 	    return $this->view->viewGallery($memeList);
+    }
+    
+    public function uploadImgur() {
+	    $id   = $this->view->getMemeID();
+	    $meme = $this->memeRepository->getMeme($id);
+	    
+	    $imgurURL = $this->model->uploadImgur($meme);
+	    
+	    $this->misc->setAlert($imgurURL);
+	    
+	    // TODO Redirect to meme page instead
+	    \view\Navigation::redirectHome();
     }
   }

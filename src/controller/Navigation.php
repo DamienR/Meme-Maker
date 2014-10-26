@@ -43,6 +43,11 @@
             $controller = new \controller\Meme();
             return $controller->viewGallery();
             break;
+            
+          case \view\Navigation::$actionUploadImgur:
+            $controller = new \controller\Meme();
+            return $controller->uploadImgur();
+            break;
 
           // Pages
           default:

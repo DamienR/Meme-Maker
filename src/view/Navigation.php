@@ -10,6 +10,7 @@
     public  static $actionCreateMeme  = "generate";
     public  static $actionViewMeme    = "view";
     public  static $actionViewGallery = "view-member";
+    public  static $actionUploadImgur = "upload-imgur";
 
     /**
       * Gets the action that the user wants

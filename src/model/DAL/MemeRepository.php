@@ -45,6 +45,7 @@
 
   		if ($result) {
 	  		$meme = new \model\Meme($result[self::$imageRow], $result[self::$topTextRow], $result[self::$bottomTextRow]);
+	  		$meme->setID($result[self::$idRow]);
 	  		$meme->setBase64($result[self::$base64Row]);
 	  		
   			return $meme;

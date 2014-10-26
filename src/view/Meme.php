@@ -40,14 +40,14 @@
       
       $ret .= "<div class='col-sm-6 col-md-6'>";
 	      $ret .= "<div class='textbox'>";    
-	    		$ret .= "<label>Choose a funny image to the right and fill in the text below:</label>"; 
+	    		$ret .= "<label>Choose a sweet image to the right and fill in the text below:</label>"; 
 	    		
 					$ret .= "<div class='form-group'>";
-			      $ret .= "<input type='text' class='form-control' name='" . self::$fieldTopText . "' id='" . self::$fieldTopText . "' placeholder='TOP' />";
+			      $ret .= "<input type='text' class='form-control' name='" . self::$fieldTopText . "' id='" . self::$fieldTopText . "' placeholder='TOP ROW' />";
 		      $ret .= "</div>";
 		
 					$ret .= "<div class='form-group'>";
-			      $ret .= "<input type='text' class='form-control' name='" . self::$fieldBottomText . "' id='" . self::$fieldBottomText . "' placeholder='BOTTOM' />";
+			      $ret .= "<input type='text' class='form-control' name='" . self::$fieldBottomText . "' id='" . self::$fieldBottomText . "' placeholder='BOTTOM ROW' />";
 		      $ret .= "</div>";
 		      
 					$ret .= "<div class='form-group'>";
@@ -55,7 +55,7 @@
 						$ret .= "<input type='file' class='form-control' name='" . self::$fieldImageUpload . "' id='" . self::$fieldImageUpload . "' />";
 		      $ret .= "</div>";
 		
-		      $ret .= "<input type='submit' value='Skapa' class='btn btn-default' />";
+		      $ret .= "<input type='submit' value='Work your magic!' class='btn btn-default' />";
 	      $ret .= "</div>";	      
       $ret .= "</div>";
      
@@ -107,10 +107,11 @@
 	      		$ret .= "<span id='lols'>:) 22</span>";
 	      		
 	      		$ret .= "<p id='link'><label><span class=''>Link</span><input class='' type='text' value='" . $linkToPage . "' readonly=''></label></p>";
-	      		
+	      			      		
 	      		$ret .= "<div id='share'>";
 	      			$ret .= "<a class='btn' href='https://www.facebook.com/sharer/sharer.php?u=" . $linkToPage . "' onclick=\"window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=570,height=280');return false;\">Facebook</a>";
 	      			$ret .= "<a class='btn' href='https://twitter.com/home?status=" . $meme->getTopText() . $meme->getBottomText() . " - " . $linkToPage . "' onclick=\"window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=570,height=280');return false;\">Twitter</a>";
+	      			$ret .= "<a class='btn' href='?" . Navigation::$action . "=" . Navigation::$actionUploadImgur . "&" . \view\Meme::$getLocation . "=" . $meme->getID() . "'>IMGUR</a>";
 	      		$ret .= "</div>";
 	      		
 	      		$ret .= "<a href='?" . Navigation::$action . "=" . Navigation::$actionCreateMeme . "' id='create'>Make your own Meme</button>";	      	

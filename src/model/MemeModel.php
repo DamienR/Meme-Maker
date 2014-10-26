@@ -173,4 +173,26 @@
 
       return $images;
     }
+    
+    public function uploadImgur($meme) {				    
+			$url = 'https://api.imgur.com/3/image.json';
+			$headers = array("Authorization: Client-ID " . \Settings::$IMGUR_CLIENTID);
+			$pvars  = array('image' => $meme->getBase64());
+			
+			$curl = curl_init();
+			curl_setopt_array($curl, array(
+			   CURLOPT_URL=> $url,
+			   CURLOPT_TIMEOUT => 30,
+			   CURLOPT_POST => 1,
+			   CURLOPT_RETURNTRANSFER => 1,
+			   CURLOPT_HTTPHEADER => $headers,
+			   CURLOPT_POSTFIELDS => $pvars
+			));
+			
+			$json_returned = curl_exec($curl);
+			$json_returned = json_decode($json_returned, true);
+			curl_close ($curl); 
+			
+			return "http://imgur.com/" . $json_returned["data"]["id"];
+    }
   }

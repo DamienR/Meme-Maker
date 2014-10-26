@@ -58,17 +58,17 @@
 						
 						$ret .= "<div class='form-group'>";
 							$ret .= "<label for='" . self::$name . "'>A sweet username:</label>";
-							$ret .= "<input type='text' class='form-control' name='" . self::$name . "' id='" . self::$name . "' value='" . $name . "' />";
+							$ret .= "<input type='text' class='form-control' name='" . self::$name . "' id='" . self::$name . "' value='" . $name . "' placeholder='InterestingGuy93' />";
 						$ret .= "</div>";
 	
 						$ret .= "<div class='form-group'>";
 				      $ret .= "<label for='" . self::$password . "'>A secure password:</label>";
-							$ret .= "<input type='password' class='form-control' name='" . self::$password . "' id='" . self::$password . "' />";
+							$ret .= "<input type='password' class='form-control' name='" . self::$password . "' id='" . self::$password . "' placeholder='******' />";
 						$ret .= "</div>";
 						
 						$ret .= "<div class='form-group'>";
 				      $ret .= "<label for='" . self::$password_repeat . "'>And that password one more time:</label>";
-				      $ret .= "<input type='password' class='form-control' name='" . self::$password_repeat . "' id='" . self::$password_repeat . "' />";
+				      $ret .= "<input type='password' class='form-control' name='" . self::$password_repeat . "' id='" . self::$password_repeat . "' placeholder='******' />";
 						$ret .= "</div>";
 			
 			  		$ret .= "<input type='submit' value='Sign me up!' class='btn btn-default' />";
@@ -102,12 +102,12 @@
 					
 					$ret .= "<div class='form-group'>";
 						$ret .= "<label for='" . self::$name . "'>Your username:</label>";
-						$ret .= "<input type='text' class='form-control' name='" . self::$name . "' id='" . self::$name . "' value='" . $username . "' />";
+						$ret .= "<input type='text' class='form-control' name='" . self::$name . "' id='" . self::$name . "' value='" . $username . "' placeholder='InterestingGuy93' />";
 					$ret .= "</div>";
 					
 					$ret .= "<div class='form-group'>";
 						$ret .= "<label for='" . self::$password . "'>The super secret password:</label>";
-						$ret .= "<input type='password' class='form-control' name='" . self::$password . "' id='" . self::$password . "' />";
+						$ret .= "<input type='password' class='form-control' name='" . self::$password . "' id='" . self::$password . "' placeholder='******' />";
 					$ret .= "</div>";
 					
 		  		$ret .= "<input type='submit' value='Log in!' class='btn btn-default' />";

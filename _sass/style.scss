@@ -16,6 +16,29 @@ a {
 	font-weight: bold;
 }
 
+.btn {
+	border: none;
+	display: block;
+	margin: 0;
+	padding: 3%;
+	width: 100%;
+	border-radius: 5px;
+	background-color: $black;
+	color: $secondary;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.3px;
+	font-weight: bold;
+	font-size: 1.5em;
+	
+	&:hover {
+		background-color: $black;
+		border: none;
+		color: $secondary;
+		opacity: 0.9;
+	}
+}
+
 .textbox {
 	padding: 10px;
 	border: 10px solid $black;
@@ -119,7 +142,7 @@ header {
 	}
 }
 
-.generateMeme {
+.generateMeme {	
 	#imagesContainer {
 		display: block;
 		
@@ -209,7 +232,7 @@ header {
 				display: block;
 				background-color: $black;
 				color: $white;
-				width: 49%;	
+				width: 32.3%;	
 				margin-left: 1%;
 				padding: 1%;
 				color: $secondary;
@@ -217,7 +240,7 @@ header {
 				text-transform: uppercase;
 				letter-spacing: 0.3px;
 				font-weight: bold;
-				font-size: 1.5em;
+				font-size: 1em;
 				
 				&:hover {
 					opacity: 0.9;

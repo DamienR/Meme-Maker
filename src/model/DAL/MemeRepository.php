@@ -64,6 +64,8 @@
 	  			$result[self::$base64Row]);
 	  		
   			return $meme;
+  		} else {
+	  		throw new \Exception("Could not find meme.");
   		}
   	}
   	
@@ -150,7 +152,7 @@
 
         $memeList[] = $meme;
       }
-
+      
       return $memeList;
     }
   }

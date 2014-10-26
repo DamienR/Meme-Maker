@@ -59,10 +59,16 @@
       * @return viewMeme
       */
     public function viewMeme() {
-	    $id   = $this->view->getMemeID();
-	    $meme = $this->memeRepository->getMeme($id);
-	    
-	    return $this->view->viewMeme($meme);
+	    try {
+	    	$id   = $this->view->getMemeID();
+	  	  $meme = $this->memeRepository->getMeme($id);
+		    
+		    return $this->view->viewMeme($meme);
+	    } catch (\Exception $e) {
+		    $this->misc->setAlert($e->getMessage());
+		    
+		    \view\Navigation::redirectHome();
+		  }
     }
     
     /**

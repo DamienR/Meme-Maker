@@ -49,6 +49,22 @@
 	    return $this->view->viewMeme($meme);
     }
     
+    public function likeMeme() {
+	    $id   = $this->view->getMemeID();
+	    $meme = $this->memeRepository->getMeme($id);
+	    
+	    $this->memeRepository->likeMeme($meme);
+	    
+/*
+	    if (\Model\MemeModel::hasLiked($meme->getUserID())) {    
+		    $this->memeRepository->deleteMeme($meme);
+	    }
+*/
+	    
+	    // TODO Redirect to meme page instead
+	    \view\Navigation::redirectHome();
+    }
+    
     public function deleteMeme() {
 	    $id   = $this->view->getMemeID();
 	    $meme = $this->memeRepository->getMeme($id);

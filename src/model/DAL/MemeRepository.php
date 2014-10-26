@@ -7,6 +7,7 @@
   class MemeRepository extends Repository {
     private static $idRow 				= "id";
     private static $userIDRow 		= "userID";
+    private static $likesRow   		= "likes";
 	  private static $imageRow 			= "image";
     private static $topTextRow	  = "topText";
     private static $bottomTextRow = "bottomText";
@@ -47,10 +48,21 @@
 	  		$meme = new \model\Meme($result[self::$imageRow], $result[self::$topTextRow], $result[self::$bottomTextRow]);
 	  		$meme->setID($result[self::$idRow]);
 	  		$meme->setUserID($result[self::$userIDRow]);
+	  		$meme->setLikes($result[self::$likesRow]);
 	  		$meme->setBase64($result[self::$base64Row]);
 	  		
   			return $meme;
   		}
+  	}
+  	
+  	public function likeMeme(\model\Meme $meme) {
+  		$db = $this -> connection();
+			
+  		$sql = "UPDATE $this->dbTable SET " . self::$likesRow . " =  " . self::$likesRow . " + 1 WHERE " . self::$idRow . " = ?";
+  		$params = array($meme->getID());
+
+  		$query = $db->prepare($sql);
+  		$query->execute($params);
   	}
   	
   	public function deleteMeme(\model\Meme $meme) {
@@ -76,6 +88,7 @@
       foreach($query->fetchAll() as $meme){
 	      $id 			  = $meme[self::$idRow];
 	      $userID     = $meme[self::$userIDRow];
+	      $likes      = $meme[self::$likesRow];
         $image 			= $meme[self::$imageRow];
         $topText 		= $meme[self::$topTextRow];
         $bottomText = $meme[self::$bottomTextRow];
@@ -84,6 +97,7 @@
         $meme = new \model\Meme($image, $topText, $bottomText);
         $meme->setID($id);
         $meme->setUserID($userID);
+        $meme->setLikes($likes);
         $meme->setBase64($base64);
 
         $memeList[] = $meme;
@@ -106,6 +120,7 @@
       foreach($query->fetchAll() as $meme){
 	      $id 			  = $meme[self::$idRow];
 	      $userID     = $meme[self::$userIDRow];
+	      $likes      = $meme[self::$likesRow];
         $image 			= $meme[self::$imageRow];
         $topText 		= $meme[self::$topTextRow];
         $bottomText = $meme[self::$bottomTextRow];
@@ -114,6 +129,7 @@
         $meme = new \model\Meme($image, $topText, $bottomText);
         $meme->setID($id);
         $meme->setUserID($userID);
+        $meme->setLikes($likes);
         $meme->setBase64($base64);
 
         $memeList[] = $meme;

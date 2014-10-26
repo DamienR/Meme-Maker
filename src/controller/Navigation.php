@@ -39,6 +39,11 @@
             return $controller->viewMeme();
             break;
             
+          case \view\Navigation::$actionLikeMeme:
+            $controller = new \controller\Meme();
+            return $controller->likeMeme();
+            break;
+            
           case \view\Navigation::$actionDeleteMeme:
             $controller = new \controller\Meme();
             return $controller->deleteMeme();

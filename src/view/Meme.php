@@ -103,8 +103,8 @@
 	      	
 	      		$ret .= "<h2>" . $meme->getTopText() . "<br>" . $meme->getBottomText() . "</h2>";
 	      		
-	      		$ret .= "<button class='btn' id='lol'>LOL!</button>";
-	      		$ret .= "<span id='lols'>:) 22</span>";
+	      		$ret .= "<a href='?" . Navigation::$action . "=" . Navigation::$actionLikeMeme . "&" . \view\Meme::$getLocation . "=" . $meme->getID() . "' class='btn' id='lol'>LOL!</a>";
+	      		$ret .= "<span id='lols'>:) " . $meme->getLikes() . "</span>";
 	      		
 	      		$ret .= "<p id='link'><label><span class=''>Link</span><input class='' type='text' value='" . $linkToPage . "' readonly=''></label></p>";
 	      			      		

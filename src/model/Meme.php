@@ -4,6 +4,7 @@
   class Meme {
 	  private $id;
 	  private $userID;
+	  private $likes;
     private $topText;
     private $bottomText;
     private $image;
@@ -31,6 +32,14 @@
 		
 		public function getUserID() {
 			return $this->userID;
+		}
+		
+		public function setLikes($likes) {
+			$this->likes = $likes;
+		}
+		
+		public function getLikes() {
+			return $this->likes;
 		}
 
     public function getTopText() {

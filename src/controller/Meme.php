@@ -38,10 +38,10 @@
 		      }
 	        
 	        // And save the meme
-	        $this->memeRepository->addMeme($meme, $userID);
+	        $id = $this->memeRepository->addMeme($meme, $userID);
 	
-					// TODO Change to redirectToMeme()
-	        return $this->view->viewMeme($meme);
+					$meme = $this->memeRepository->getMeme($id);
+					\view\Navigation::redirectToMeme($meme->getID());
 	      } catch (\Exception $e) {
           $this->misc->setAlert($e->getMessage());
           

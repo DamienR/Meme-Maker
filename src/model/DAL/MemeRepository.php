@@ -20,8 +20,9 @@
     /**
       * Add a meme to the db
       *
-      * @param Meme $meme - the meme to save
+      * @param Meme $meme - The meme to save
       * @param int $userID
+      * @return int - The ID of the meme saved
       */
     public function addMeme(\model\Meme $meme, $userID) {	    	    
       $db = $this->connection();
@@ -36,6 +37,8 @@
 
       $query = $db->prepare($sql);
 		  $query->execute($params);
+		  
+		  return $db->lastInsertId();
     }
     
     /**

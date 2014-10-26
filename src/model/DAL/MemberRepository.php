@@ -45,7 +45,7 @@
       $query = $db->prepare($sql);
 		  $query->execute();
 
-      if ($query->rowCount() > 0){
+      if ($query->rowCount() > 0) {
         foreach ($query->fetchAll() as $result) {
           $member = new \model\Member($result[self::$nameRow], $result[self::$passwordRow], $result[self::$idRow]);
           return $member;

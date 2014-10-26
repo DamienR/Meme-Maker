@@ -48,7 +48,7 @@
       *
       * @return string (HTML) - the form
       */
-    public function getForm() {
+    public function addMember() {
       $name = isset($_POST[self::$name]) ? preg_replace('/[^a-z0-9\-_\.]/i', '', $_POST[self::$name]) : '';
       
       $ret  = "<div class='col-md-12 register'>";
@@ -93,7 +93,7 @@
       *
       * @return string - The page log in page
       */
-    public function showLogin() {
+    public function loginMember() {
       $username = empty($_POST['username']) ? '' : $_POST['username'];
 
       $ret  = "<div class='col-md-12 login'>";
@@ -117,6 +117,13 @@
   		$ret .= "<div class='col-sm-6 col-md-6 meme'><img src='img/login.png'></div>";
 
       return $ret;
+    }
+    
+    public function didMemberPressSubmit() {
+      if (isset($_POST[self::$name]))
+        return true;
+
+      return false;
     }
 
     /**

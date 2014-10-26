@@ -66,7 +66,7 @@
 
         return true;
       }
-
+      
       // If the provided username/password is wrong, check what kind of error the user has made
       if (empty($username)) {
         $this->misc->setAlert("Användarnamn saknas");

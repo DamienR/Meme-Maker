@@ -41,8 +41,10 @@ a {
 
 .alert-info {
 	background-color: transparent;
-	border: 5px solid $black;
+	border: 10px solid $black;
 	color: $black;
+	margin: -5px 15px 15px;
+	border-radius: 0;
 }
 
 .textbox {

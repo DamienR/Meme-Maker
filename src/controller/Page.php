@@ -10,9 +10,12 @@
 
     public function __construct() {
 			$this->memeRepository = new \DAL\MemeRepository();
-      $this->view = new \view\Page();
+      $this->view 					= new \view\Page();
     }
 
+		/**
+      * @return startPage
+      */
     public function general() {
 	    $memeList = $this->memeRepository->getAllMemes();
       return $this->view->startPage($memeList);

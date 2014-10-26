@@ -195,4 +195,14 @@
 			
 			return "http://imgur.com/" . $json_returned["data"]["id"];
     }
+    
+    public static function canEditMeme($userID) {
+	    if(\Model\MemberModel::userIsLoggedIn()) {
+		    if ($userID === $_SESSION[\model\MemberModel::$sessionUserID]) {
+			  	return true;  
+			  }
+		  }
+		  
+	    return false;
+    }
   }

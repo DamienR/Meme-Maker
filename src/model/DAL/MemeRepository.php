@@ -46,10 +46,21 @@
   		if ($result) {
 	  		$meme = new \model\Meme($result[self::$imageRow], $result[self::$topTextRow], $result[self::$bottomTextRow]);
 	  		$meme->setID($result[self::$idRow]);
+	  		$meme->setUserID($result[self::$userIDRow]);
 	  		$meme->setBase64($result[self::$base64Row]);
 	  		
   			return $meme;
   		}
+  	}
+  	
+  	public function deleteMeme(\model\Meme $meme) {
+  		$db = $this -> connection();
+
+  		$sql = "DELETE FROM $this->dbTable WHERE " . self::$idRow . " = ?";
+  		$params = array($meme->getID());
+
+  		$query = $db->prepare($sql);
+  		$query->execute($params);
   	}
     
     public function getAllMemes() {
@@ -64,6 +75,7 @@
      
       foreach($query->fetchAll() as $meme){
 	      $id 			  = $meme[self::$idRow];
+	      $userID     = $meme[self::$userIDRow];
         $image 			= $meme[self::$imageRow];
         $topText 		= $meme[self::$topTextRow];
         $bottomText = $meme[self::$bottomTextRow];
@@ -71,6 +83,7 @@
 
         $meme = new \model\Meme($image, $topText, $bottomText);
         $meme->setID($id);
+        $meme->setUserID($userID);
         $meme->setBase64($base64);
 
         $memeList[] = $meme;
@@ -92,6 +105,7 @@
      
       foreach($query->fetchAll() as $meme){
 	      $id 			  = $meme[self::$idRow];
+	      $userID     = $meme[self::$userIDRow];
         $image 			= $meme[self::$imageRow];
         $topText 		= $meme[self::$topTextRow];
         $bottomText = $meme[self::$bottomTextRow];
@@ -99,6 +113,7 @@
 
         $meme = new \model\Meme($image, $topText, $bottomText);
         $meme->setID($id);
+        $meme->setUserID($userID);
         $meme->setBase64($base64);
 
         $memeList[] = $meme;

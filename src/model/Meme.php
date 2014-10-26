@@ -3,6 +3,7 @@
 
   class Meme {
 	  private $id;
+	  private $userID;
     private $topText;
     private $bottomText;
     private $image;
@@ -22,6 +23,14 @@
 		
 		public function getID() {
 			return $this->id;
+		}
+		
+		public function setUserID($userID) {
+			$this->userID = $userID;
+		}
+		
+		public function getUserID() {
+			return $this->userID;
 		}
 
     public function getTopText() {

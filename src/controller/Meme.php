@@ -49,6 +49,18 @@
 	    return $this->view->viewMeme($meme);
     }
     
+    public function deleteMeme() {
+	    $id   = $this->view->getMemeID();
+	    $meme = $this->memeRepository->getMeme($id);
+	    
+	    if (\Model\MemeModel::canEditMeme($meme->getUserID())) {    
+		    $this->memeRepository->deleteMeme($meme);
+	    }
+	    
+	    // TODO Redirect to meme page instead
+	    \view\Navigation::redirectHome();
+    }
+    
     public function viewGallery() {
 	    $id       = \View\Member::getMemberID();
 	    $memeList = $this->memeRepository->getMembersMemes($id);

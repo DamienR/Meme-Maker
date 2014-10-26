@@ -115,6 +115,11 @@
 	      		$ret .= "</div>";
 	      		
 	      		$ret .= "<a href='?" . Navigation::$action . "=" . Navigation::$actionCreateMeme . "' id='create'>Make your own Meme</button>";	      	
+	      		
+	      		if (\Model\MemeModel::canEditMeme($meme->getUserID())) {
+		      		$ret .= "<a href='?" . Navigation::$action . "=" . Navigation::$actionDeleteMeme . "&" . \view\Meme::$getLocation . "=" . $meme->getID() . "' id='delete'>Delete the meme</button>";	      	
+		      	}
+		      	
 	      	$ret .= "</div>";
 	      $ret .= "</div>";
       $ret .= "</div>";

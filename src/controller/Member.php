@@ -20,6 +20,7 @@
     }
 
     public function addMember() {
+	    // TODO Remove this
       if (strtolower($_SERVER['REQUEST_METHOD']) == 'post') {
         try {
           $newMember = $this->view->getFormData();

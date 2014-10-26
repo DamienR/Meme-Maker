@@ -9,6 +9,7 @@
     public  static $actionIndex       = "index";
     public  static $actionCreateMeme  = "generate";
     public  static $actionViewMeme    = "view";
+    public  static $actionDeleteMeme  = "delete";
     public  static $actionViewGallery = "view-member";
     public  static $actionUploadImgur = "upload-imgur";
 

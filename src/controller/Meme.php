@@ -25,22 +25,29 @@
       */
     public function createMeme() {
       if ($this->view->didUserSubmit()) {
-        $meme = $this->view->getFormData();
-        $this->model->makeMeme($meme);
-
-				// Check if the memeber is logged in and
-				// assign the meme to that user if so
-        if(\Model\MemberModel::userIsLoggedIn()) {
-	      	$userID = $_SESSION[\model\MemberModel::$sessionUserID];
-	      } else {
-		      $userID = null;
-	      }
-        
-        // And save the meme
-        $this->memeRepository->addMeme($meme, $userID);
-
-				// TODO Change to redirectToMeme()
-        return $this->view->viewMeme($meme);
+	      try {
+		      $meme = $this->view->getFormData();
+	        $this->model->makeMeme($meme);
+	
+					// Check if the memeber is logged in and
+					// assign the meme to that user if so
+	        if(\Model\MemberModel::userIsLoggedIn()) {
+		      	$userID = $_SESSION[\model\MemberModel::$sessionUserID];
+		      } else {
+			      $userID = null;
+		      }
+	        
+	        // And save the meme
+	        $this->memeRepository->addMeme($meme, $userID);
+	
+					// TODO Change to redirectToMeme()
+	        return $this->view->viewMeme($meme);
+	      } catch (\Exception $e) {
+          $this->misc->setAlert($e->getMessage());
+          
+          $imagesToChoose = $this->model->getImagesToChoose();
+          return $this->view->createMeme($imagesToChoose);
+        }
       }
 
       $imagesToChoose = $this->model->getImagesToChoose();

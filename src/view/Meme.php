@@ -39,10 +39,16 @@
       * @return Meme
       */
     public function getFormData() {
-      // TODO Image upload size validation
-
       if(file_exists($_FILES[self::$fieldImageUpload]['tmp_name']) || is_uploaded_file($_FILES[self::$fieldImageUpload]['tmp_name'])) {
+	      if ((400 * 1024) < filesize($_FILES[self::$fieldImageUpload]['tmp_name'])) {
+	    		throw new \Exception("That's a huge image bro. No way.");	
+    		}
+    		
     		$_POST[self::$fieldImage] = $_FILES[self::$fieldImageUpload]['tmp_name'];
+    	}
+    	
+    	if (!isset($_POST[self::$fieldImage])) {
+	    	throw new \Exception("You need to choose or upload an image that's not humungus.");
     	}
 
   		return new \model\Meme(null, null, null, $_POST[self::$fieldImage], $_POST[self::$fieldTopText], $_POST[self::$fieldBottomText]);

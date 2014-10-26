@@ -33,15 +33,15 @@
       $length = mb_strlen($name);
 
       if ($length < 3) {
-        throw new \Exception("Användarnamnet har för få tecken. Minst 3 tecken.");
+        throw new \Exception("Username is too short. At least 3 characters.");
       } else if ($length > 20) {
-        throw new \Exception("Användarnamn för långt.");
+        throw new \Exception("Username is way too long.");
       }
 
       $username = preg_replace('/[^a-z0-9\-_\.]/i', '', $name, -1, $hasInvalid);
 
       if ($hasInvalid)
-        throw new \Exception("Användarnamnet innehåller ogiltiga tecken.");
+        throw new \Exception("Don't even try to hack me with those crazy characters.");
 
       $this->name = $name;
     }
@@ -58,8 +58,8 @@
     public function setPassword($password) {
       $length = mb_strlen($password);
 
-      if ($length < 6)
-        throw new \Exception("Lösenorden har för få tecken. Minst 6 tecken.");
+      if ($length < 4)
+        throw new \Exception("We want safe passwords. So more then 4 characters please.");
 
       // TODO Encrypt password
       // TODO Check exception

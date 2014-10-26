@@ -4,7 +4,7 @@ An awesome meme generator built on PHP. Includes member system, meme generation,
 Meme Maker! is tested on `PHP 5.5.14` and requires `cURL`. Released under the [MIT license](LICENSE).
 
 ## Installation
-You need to generate a API-key from [IMGUR](https://api.imgur.com) (Example key that you can use: 497c18f153a4d3e) and
+You need to generate a API-key from [Imgur](https://api.imgur.com) (Example key that you can use: 497c18f153a4d3e) and
 edit `Settings.php`:
 
 ```php

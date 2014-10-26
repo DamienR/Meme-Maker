@@ -8,14 +8,24 @@
     private static $fieldImageUpload = "memeImageUpload";
     public  static $getLocation 		 = "id";
     
+    /**
+      * Gets the meme id from the get location
+      *
+      * @return int - the id
+      */
     public function getMemeID() {
   		if (isset($_GET[self::$getLocation])) {
   			return $_GET[self::$getLocation];
   		}
 
-  		return NULL;
+  		return null;
   	}
 
+		/**
+      * Checks if user did submit the generate form
+      *
+      * @return boolval
+      */
     public function didUserSubmit() {
       if (isset($_POST[self::$fieldTopText]))
         return true;
@@ -23,6 +33,11 @@
       return false;
     }
 
+		/**
+      * Gets the formdata that's posted
+      *
+      * @return Meme
+      */
     public function getFormData() {
       // TODO Image upload size validation
 
@@ -33,6 +48,11 @@
   		return new \model\Meme(null, null, null, $_POST[self::$fieldImage], $_POST[self::$fieldTopText], $_POST[self::$fieldBottomText]);
   	}
 
+		/**
+      * Create a meme view
+      *
+      * @return html
+      */
     public function createMeme($imagesToChoose) {
 	    $ret  = "<div class='col-md-12 generateMeme'>";
 
@@ -68,14 +88,17 @@
 	      $ret .= "</div>";
 			$ret .= "</div>";
 
-      
       $ret .= "</form>";
-      
       $ret .= "</div>";
 
       return $ret;
     }
     
+    /**
+      * View a users gallery view
+      *
+      * @return html
+      */
     public function viewGallery($memeList) {
 	    $ret = "<div class='col-md-12 startPage'>";
 	   	
@@ -90,6 +113,11 @@
       return $ret; 
     }
 
+		/**
+      * View a meme view
+      *
+      * @return html
+      */
     public function viewMeme(\model\Meme $meme) {
 	    $linkToPage = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . "?" . Navigation::$action . "=" . Navigation::$actionViewMeme . "&" . \view\Meme::$getLocation . "=" . $meme->getID();
 	    

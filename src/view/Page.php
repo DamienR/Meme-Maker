@@ -5,6 +5,7 @@
     public function startPage($memeList) {
 	    $ret = "<div class='col-md-12 startPage'>";
 	    
+	    // Show menu depending on if your logged in or not
 			if(\Model\MemberModel::userIsLoggedIn()) {
         $username = $_SESSION[\model\MemberModel::$sessionUsername];
         $userID   = $_SESSION[\model\MemberModel::$sessionUserID];

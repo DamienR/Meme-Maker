@@ -66,16 +66,16 @@
       
       // If the provided username/password is wrong, check what kind of error the user has made
       if (empty($username)) {
-        $this->misc->setAlert("Användarnamn saknas");
+        $this->misc->setAlert("Username is missing.");
         return false;
       } else if (empty($password)) {
-        $this->misc->setAlert("Lösenord saknas");
+        $this->misc->setAlert("Password is missing");
         return false;
       } else if ($username != self::$username XOR $password != self::$password) {
-        $this->misc->setAlert("Felaktigt användarnamn och/eller lösenord");
+        $this->misc->setAlert("Wrong username and/or password");
         return false;
       } else {
-        $this->misc->setAlert("Ett fel inträffade. Försök igen.");
+        $this->misc->setAlert("Something wrong happened. Try again.");
         return false;
       }
     }

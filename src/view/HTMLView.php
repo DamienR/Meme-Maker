@@ -12,7 +12,7 @@
 	  
     /**
       * Creates a HTML page. I blame the indentation
-      * on webbrowser and PHP.
+      * on webbrowsers and PHP.
       *
       * @param string $title - The page title
       * @param string $body - The middle part of the page

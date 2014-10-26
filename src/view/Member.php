@@ -8,6 +8,7 @@
     private static $name            = "name";
     private static $password        = "password";
     private static $password_repeat = "password_repeat";
+    
 		public  static $getLocation 		 = "id";
 
     public function __construct() {
@@ -119,6 +120,11 @@
       return $ret;
     }
     
+    /**
+      * Checks if user submitted the register form
+      *
+      * @return boolval
+      */
     public function didMemberPressSubmit() {
       if (isset($_POST[self::$name]))
         return true;
@@ -127,7 +133,7 @@
     }
 
     /**
-      * Checks if user submitted the form
+      * Checks if user did login
       *
       * @return boolval
       */

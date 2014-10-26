@@ -31,6 +31,10 @@
       header('Location: ' . \Settings::$ROOT_PATH);
     }
 
+		/**
+      * Redirects the user to a meme
+      * @param int @id - the meme's id
+      */
     public static function redirectToMeme($id) {
       header('Location: ' . \Settings::$ROOT_PATH . "?" . Navigation::$action . "=" . Navigation::$actionViewMeme . "&" . \view\Meme::$getLocation . "=" . $id);
     }

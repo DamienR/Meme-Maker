@@ -54,8 +54,7 @@
 			<div class='col-md-12'>
 				<nav>
 					<a href='" . \Settings::$ROOT_PATH . "'>Meme Maker!</a>
-					<a href='#'>Tips &  Tricks</a>
-					<a href='#'>Feedback</a>			
+					<a href='mailto:marco@wheresmar.co'>Feedback</a>
 				</nav>
 			</div>
     </footer>

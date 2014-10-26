@@ -65,6 +65,10 @@
       */
     public function createMeme($imagesToChoose) {
 	    $ret  = "<div class='col-md-12 generateMeme'>";
+	    
+	    if(!\Model\MemberModel::userIsLoggedIn()) {
+		    $ret .= "<div class='alert alert-info' role='alert'>If you <a href='?" . Navigation::$action . "=" . Navigation::$actionLogin . "'>log in</a> you're meme get's saved to your own gallery. Just saying.</div>"; 
+	    }
 
       $ret .= "<form action='?action=" . Navigation::$actionCreateMeme . "' method='post' enctype='multipart/form-data'>";
       
@@ -93,7 +97,7 @@
 	      $ret .= "<div id='imagesContainer'>";
 		      // Loop through the image array provided
 		      foreach($imagesToChoose as $image) {
-			      $ret .= "<div class='col-sm-6 col-md-4 image'><label><input type='radio' name='" . self::$fieldImage . "' id='" . $image . "' value='" . $image . "'><img src='" . $image . "'></label></div>";
+			      $ret .= "<div class='col-xs-6 col-sm-6 col-md-4 image'><label><input type='radio' name='" . self::$fieldImage . "' id='" . $image . "' value='" . $image . "'><img src='" . $image . "'></label></div>";
 		      }
 	      $ret .= "</div>";
 			$ret .= "</div>";

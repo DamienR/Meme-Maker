@@ -23,6 +23,10 @@
       * @return addMember
       */
     public function addMember() {
+	    if($this->model->userIsLoggedIn()) {
+		  	\view\Navigation::redirectHome();
+		  }
+		  
       if ($this->view->didMemberPressSubmit()) {
         try {
           $newMember = $this->view->getFormData();
@@ -52,6 +56,10 @@
       * @return loginMember
       */
     public function logIn() {
+	    if($this->model->userIsLoggedIn()) {
+		  	\view\Navigation::redirectHome();
+		  }
+	    
       if ($this->view->didMemberPressLogin()) {
 	      try {
         // Get the form data and log the user in

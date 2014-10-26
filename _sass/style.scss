@@ -50,6 +50,14 @@ a {
 .textbox {
 	padding: 10px;
 	border: 10px solid $black;
+	
+	h2 {
+		margin-top: 10px;
+		font-size: 1.8em;
+		color: #1b1e21;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
 }
 
 header {
@@ -125,16 +133,6 @@ header {
 		border: 10px solid $black;
 		margin-bottom: 15px;
 	}
-	
-	.textbox {
-		h2 {
-			margin-top: 10px;
-			font-size: 1.8em;
-			color: #1b1e21;
-			font-weight: 700;
-			text-transform: uppercase;
-		}
-	}
 }
 
 .login {
@@ -151,20 +149,24 @@ header {
 }
 
 .generateMeme {	
+	.textbox {
+		margin-bottom: 15px;
+	}
+	
 	#imagesContainer {
 		display: block;
 		
 		.image {			
-			label > input{ /* HIDE RADIO */
+			label > input {
 			  display: none;
 			}
 			
-			label > input + img{ /* IMAGE STYLES */
+			label > input + img {
 			  cursor: pointer;
 			  border: 5px solid $black;
 			}
 			
-			label > input:checked + img{ /* (CHECKED) IMAGE STYLES */
+			label > input:checked + img {
 			  border: 5px solid $primary;
 			}
 						

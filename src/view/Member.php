@@ -95,11 +95,11 @@
       * @return string - The page log in page
       */
     public function loginMember() {
-      $username = empty($_POST['username']) ? '' : $_POST['username'];
+      $username = empty($_POST[self::$name]) ? '' : $_POST[self::$name];
 
       $ret  = "<div class='col-md-12 login'>";
-		    $ret .= "<div class='col-sm-6 col-md-6 textbox'>";
-					$ret .= "<form action='?action=" . Navigation::$actionLogin . "' method='post'>";
+		    $ret .= "<div class='col-sm-6 col-md-6'>";
+					$ret .= "<form action='?action=" . Navigation::$actionLogin . "' method='post' class='textbox'>";
 					
 					$ret .= "<div class='form-group'>";
 						$ret .= "<label for='" . self::$name . "'>Your username:</label>";
@@ -113,6 +113,11 @@
 					
 		  		$ret .= "<input type='submit' value='Log in!' class='btn btn-default' />";
 		 		$ret .= "</form>"; 		
+		 		
+		 		$ret .= "<div class='textbox'>";
+			 		$ret .= "<h2>Ain't got no account?</h2><p>No problem, you can <a href='?" . Navigation::$action . "=" . Navigation::$actionAddUser . "'>create one</a> for free.</p>";
+		 		$ret .= "</div>";
+		 		
 		  $ret .= "</div>";
   
   		$ret .= "<div class='col-sm-6 col-md-6 meme'><img src='img/login.png'></div>";

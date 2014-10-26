@@ -4,6 +4,11 @@
   class Misc {
     private static $sessionAlert = "sessionAlert";
     
+    /**
+      * Checks if there are any alerts to show
+      *
+      * @return boolval
+      */
     public function anyAlerts() {
 	    if (isset($_SESSION[self::$sessionAlert])) {
 		  	return true;

@@ -1,7 +1,15 @@
 <?php
   namespace model;
 
+  require_once("src/helper/Misc.php");
+
   class MemeModel {
+	  private $misc;
+	  
+    public function __construct() {
+      $this->misc = new \helper\Misc();
+    }
+	  
     /**
       * The function that fires everyting off
       *
@@ -193,7 +201,11 @@
 			$json_returned = json_decode($json_returned, true);
 			curl_close ($curl); 
 			
-			return "http://imgur.com/" . $json_returned["data"]["id"];
+			$imgurURL = "http://imgur.com/" . $json_returned["data"]["id"];
+			
+			$this->misc->setAlert("The upload is now at: <a href='" . $imgurURL . "' target='_blank'>" . $imgurURL . "</a>");
+			
+			return true;
     }
     
     public static function canEditMeme($userID) {

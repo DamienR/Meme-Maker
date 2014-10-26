@@ -101,9 +101,7 @@
 	    $id   = $this->view->getMemeID();
 	    $meme = $this->memeRepository->getMeme($id);
 	    
-	    $imgurURL = $this->model->uploadImgur($meme);
-	    
-	    $this->misc->setAlert("The upload is now at: <a href='" . $imgurURL . "' target='_blank'>" . $imgurURL . "</a>");
+	    $this->model->uploadImgur($meme);
 	    
 	    \view\Navigation::redirectToMeme($meme->getID());
     }

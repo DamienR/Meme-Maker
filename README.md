@@ -19,6 +19,6 @@ edit `Settings.php`:
 ?>
 ```
 
-Don't forget to also upload the DB-backup that is contained in the `/DB-Backup/` folder.
+Don't forget to also upload the DB-backup that is contained in the `/_DB-Backup/` folder.
 
 The application is bundled with a [Vagrant-file](https://www.vagrantup.com). Just run `vagrant up` and it should work.

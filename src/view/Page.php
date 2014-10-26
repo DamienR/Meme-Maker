@@ -20,7 +20,7 @@
 			}
 			
 			if (empty($memeList)) {
-				$ret .= "<div class='alert alert-info' role='alert'>Not a single meme exists. Let's be the first and <a href='?" . Navigation::$action . "=" . Navigation::$actionCreateMeme . "'>make one</a>!</div>"; 
+				$ret .= "<br style='clear: both;'><div class='alert alert-info' role='alert'>Not a single meme exists. Let's be the first and <a href='?" . Navigation::$action . "=" . Navigation::$actionCreateMeme . "'>make one</a>!</div>"; 
 	    } else {		    
 				// Loop out the memes
 				foreach (array_reverse($memeList) as $meme) {

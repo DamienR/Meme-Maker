@@ -29,6 +29,15 @@
   <meta charset='UTF-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <title>" . $title . "</title>
+  
+  <!-- Icons -->
+	<link rel='apple-touch-icon' href='" . \Settings::$ROOT_PATH . "img/icon.png' />
+	<link rel='shortcut icon' type='image/x-icon' href='" . \Settings::$ROOT_PATH . "img/favicon.png'>
+		
+	<!-- Facebook-stuff -->
+	<meta property='og:image' content='" . \Settings::$ROOT_PATH . "img/icon.png'> 
+	<meta property='og:type' content='website'>
+	<meta property='og:site_name' content='" . $title . "'> 
 
 	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
   <link rel='stylesheet' href='css/style.css'>

@@ -8,4 +8,4 @@
   $body = $controller->doControll();
 
   $view = new \view\HTMLView();
-  $view->echoHTML("Meme maker!", $body);
+  $view->echoHTML("Meme Maker!", $body);

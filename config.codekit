@@ -18,22 +18,6 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
-	"\/_sass\/includes\/_fonts.scss": {
-		"createSourceMap": 0,
-		"debugStyle": 0,
-		"decimalPrecision": 10,
-		"fileType": 4,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/_sass\/includes\/_fonts.scss",
-		"outputAbbreviatedPath": "\/_sass\/css\/_fonts.css",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
-		"useLibsass": 0
-		},
 	"\/_sass\/includes\/_mixins.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
@@ -84,6 +68,39 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/img\/favicon.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 96271,
+		"inputAbbreviatedPath": "\/img\/favicon.png",
+		"outputAbbreviatedPath": "\/img\/favicon.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/icon.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 82826,
+		"inputAbbreviatedPath": "\/img\/icon.png",
+		"outputAbbreviatedPath": "\/img\/icon.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/login.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 59276,
+		"inputAbbreviatedPath": "\/img\/login.png",
+		"outputAbbreviatedPath": "\/img\/login.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/logo.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -106,6 +123,50 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/img\/memes\/1bij.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 31776,
+		"inputAbbreviatedPath": "\/img\/memes\/1bij.jpg",
+		"outputAbbreviatedPath": "\/img\/memes\/1bij.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/memes\/26hg.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 18620,
+		"inputAbbreviatedPath": "\/img\/memes\/26hg.jpg",
+		"outputAbbreviatedPath": "\/img\/memes\/26hg.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/memes\/59qi.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 21672,
+		"inputAbbreviatedPath": "\/img\/memes\/59qi.jpg",
+		"outputAbbreviatedPath": "\/img\/memes\/59qi.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/memes\/conspiracy-keanu.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 112316,
+		"inputAbbreviatedPath": "\/img\/memes\/conspiracy-keanu.jpg",
+		"outputAbbreviatedPath": "\/img\/memes\/conspiracy-keanu.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/memes\/fry.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -113,6 +174,17 @@
 		"initialSize": 192100,
 		"inputAbbreviatedPath": "\/img\/memes\/fry.png",
 		"outputAbbreviatedPath": "\/img\/memes\/fry.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/memes\/jackie-chan-wtf.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 167689,
+		"inputAbbreviatedPath": "\/img\/memes\/jackie-chan-wtf.jpg",
+		"outputAbbreviatedPath": "\/img\/memes\/jackie-chan-wtf.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -135,6 +207,39 @@
 		"initialSize": 19273,
 		"inputAbbreviatedPath": "\/img\/memes\/philosoraptor.jpg",
 		"outputAbbreviatedPath": "\/img\/memes\/philosoraptor.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/memes\/readImage-2.jpeg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 24599,
+		"inputAbbreviatedPath": "\/img\/memes\/readImage-2.jpeg",
+		"outputAbbreviatedPath": "\/img\/memes\/readImage-2.jpeg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/memes\/readImage.jpeg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 11306,
+		"inputAbbreviatedPath": "\/img\/memes\/readImage.jpeg",
+		"outputAbbreviatedPath": "\/img\/memes\/readImage.jpeg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/memes\/the-most-interesting-man-in-the-world.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 119919,
+		"inputAbbreviatedPath": "\/img\/memes\/the-most-interesting-man-in-the-world.jpg",
+		"outputAbbreviatedPath": "\/img\/memes\/the-most-interesting-man-in-the-world.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -219,6 +324,15 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/src\/model\/DAL\/MemberRepository.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/src\/model\/DAL\/MemeRepository.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/src\/model\/DAL\/MemeRepository.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0

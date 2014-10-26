@@ -27,7 +27,7 @@
 
           $this->MemberRepository->addMember($newMember);
 
-          $this->misc->setAlert("Registrering av ny användare lyckades.");
+          $this->misc->setAlert("Welcome aboard my new best friend");
 
           $this->model->logIn($newMember);
 
@@ -46,7 +46,9 @@
         // Get the form data and log the user in
         $member = $this->view->getFormData();
         $this->model->logIn($member);
-
+        
+        $this->misc->setAlert("Welcome home! Why not make a meme?");
+        
         // Redirect home
         \view\Navigation::redirectHome();
       }
@@ -57,6 +59,8 @@
 
     public function logOut() {
       $this->model->logOut();
+      
+      $this->misc->setAlert("And you're out!");
 
       \view\Navigation::redirectHome();
     }

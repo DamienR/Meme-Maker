@@ -30,4 +30,8 @@
     public static function redirectHome() {
       header('Location: ' . \Settings::$ROOT_PATH);
     }
+
+    public static function redirectToMeme($id) {
+      header('Location: ' . \Settings::$ROOT_PATH . "?" . Navigation::$action . "=" . Navigation::$actionViewMeme . "&" . \view\Meme::$getLocation . "=" . $id);
+    }
   }

@@ -41,10 +41,13 @@
       </div>
     </header>
     
-    <span class='alert'>" . $this->misc->getAlert() . "</span>
-
-    <div class='row'>
-			" . $body . "
+    <div class='row'>";
+    
+    if ($this->misc->anyAlerts()) {
+	    echo "<div class='col-md-12'><div class='alert alert-info' role='alert'>" . $this->misc->getAlert() . "</div></div>";
+    }
+   
+    echo $body . "
     </div>
     
     <footer class='row'>

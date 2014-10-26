@@ -64,9 +64,6 @@
         $_SESSION[self::$sessionUsername] = $usernameDB;
         $_SESSION[self::$sessionUserID] = $userID;
 
-        // Set an alert and go on
-        $this->misc->setAlert("Inloggning lyckades");
-
         return true;
       }
 
@@ -96,9 +93,6 @@
       if (isset($_SESSION[self::$sessionUserID])) {
         session_unset();
         session_destroy();
-
-        // Set alert message
-        $this->misc->setAlert("Du har nu loggat ut.");
 
         return true;
       }

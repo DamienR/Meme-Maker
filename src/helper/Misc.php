@@ -3,6 +3,14 @@
 
   class Misc {
     private static $sessionAlert = "sessionAlert";
+    
+    public function anyAlerts() {
+	    if (isset($_SESSION[self::$sessionAlert])) {
+		  	return true;
+		  }
+		  
+		  return false;
+    }
 
     /**
       * Get an alert from the session alert system
@@ -16,7 +24,7 @@
         $ret = $_SESSION[self::$sessionAlert];
         unset($_SESSION[self::$sessionAlert]);
       } else {
-        $ret = "";
+        $ret = null;
       }
 
       return $ret;

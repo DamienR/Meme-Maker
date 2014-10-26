@@ -55,14 +55,7 @@
 	    
 	    $this->memeRepository->likeMeme($meme);
 	    
-/*
-	    if (\Model\MemeModel::hasLiked($meme->getUserID())) {    
-		    $this->memeRepository->deleteMeme($meme);
-	    }
-*/
-	    
-	    // TODO Redirect to meme page instead
-	    \view\Navigation::redirectHome();
+	    \view\Navigation::redirectToMeme($meme->getID());
     }
     
     public function deleteMeme() {
@@ -73,8 +66,7 @@
 		    $this->memeRepository->deleteMeme($meme);
 	    }
 	    
-	    // TODO Redirect to meme page instead
-	    \view\Navigation::redirectHome();
+	    \view\Navigation::redirectToMeme($meme->getID());
     }
     
     public function viewGallery() {
@@ -90,9 +82,8 @@
 	    
 	    $imgurURL = $this->model->uploadImgur($meme);
 	    
-	    $this->misc->setAlert($imgurURL);
+	    $this->misc->setAlert("The upload is now at: <a href='" . $imgurURL . "' target='_blank'>" . $imgurURL . "</a>");
 	    
-	    // TODO Redirect to meme page instead
-	    \view\Navigation::redirectHome();
+	    \view\Navigation::redirectToMeme($meme->getID());
     }
   }

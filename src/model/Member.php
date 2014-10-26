@@ -15,12 +15,11 @@
 		    $this->id = $id;
 	    }
     }
+        
+    public function getID() {
+	    return $this->id;
+    }
 
-    /**
-      * Getter for username
-      *
-      * @return string - username
-      */
     public function getName() {
       return $this->name;
     }
@@ -47,11 +46,6 @@
       $this->name = $name;
     }
 
-    /**
-      * Getter for the password
-      *
-      * @return string - the password
-      */
     public function getPassword() {
       return $this->password;
     }
@@ -71,23 +65,5 @@
       // TODO Check exception
 
       $this->password = $password;
-    }
-
-    /**
-      * A simple check if the password in the Member is
-      * the same as in db.
-      *
-      * @param string $password - The password submitted
-      * @return boolval
-      */
-    public function verifyPassword($password) {
-      if ($password === $this->password)
-        return true;
-
-      return false;
-    }
-    
-    public function getID() {
-	    return $this->id;
     }
   }

@@ -10,12 +10,12 @@
     private static $username = "Admin";
     private static $password = "Password";
 
- 		public static  $sessionUserID   = "Login::UserID";
+ 		public  static $sessionUserID   = "Login::UserID";
     public  static $sessionUsername = "Login::Username";
 
     public function __construct() {
       $this->memberRepository = new \DAL\MemberRepository();
-      $this->misc = new \helper\Misc();
+      $this->misc						  = new \helper\Misc();
     }
 
     /**
@@ -25,10 +25,7 @@
       */
     public static function userIsLoggedIn() {
       if (isset($_SESSION[self::$sessionUserID])) {
-        // Check if session is valid
-        //if ($_SESSION[self::$uniqueID] === $this->misc->setUniqueID()) {
-          return true;
-        //}
+				return true;
       }
 
       return false;

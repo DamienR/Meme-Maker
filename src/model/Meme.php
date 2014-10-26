@@ -10,34 +10,38 @@
     private $image;
     private $base64;
 
-    public function __construct($image, $topText, $bottomText) {
-      // TODO Validation
-      
-      $this->image = $image;
-      $this->topText = $topText;
+    public function __construct($id = null, $userID = null, $likes = null, 
+    	$image, $topText, $bottomText, $base64 = null) {
+	    	
+      $this->image 			= $image;
+      $this->topText 		= $topText;
       $this->bottomText = $bottomText;
+      
+			if ($id != null) {
+		    $this->id = $id;
+	    }
+	   
+			if ($userID != null) {
+		    $this->userID = $userID;
+	    }
+	    
+	    if ($likes != null) {
+		    $this->likes = $likes;
+	    }
+	    
+	    if ($base64 != null) {
+		    $this->base64 = $base64;
+	    } 
     }
 
-		public function setID($id) {
-			$this->id = $id;
-		}
-		
 		public function getID() {
 			return $this->id;
 		}
-		
-		public function setUserID($userID) {
-			$this->userID = $userID;
-		}
-		
+				
 		public function getUserID() {
 			return $this->userID;
 		}
-		
-		public function setLikes($likes) {
-			$this->likes = $likes;
-		}
-		
+				
 		public function getLikes() {
 			return $this->likes;
 		}
@@ -50,16 +54,20 @@
       return $this->bottomText;
     }
 
-
     public function getImage() {
       return $this->image;
     }
 
-    public function setBase64($data) {
-      $this->base64 = $data;
+		public function getBase64() {
+      return $this->base64;
     }
 
-    public function getBase64() {
-      return $this->base64;
+		/**
+      * Setter for the base64 image
+      *
+      * @param string $password - The password to save
+      */
+		public function setBase64($base64) {
+      $this->base64 = $base64;
     }
   }

@@ -81,7 +81,8 @@
 		    $this->memeRepository->deleteMeme($meme);
 	    }
 	    
-	    \view\Navigation::redirectToMeme($meme->getID());
+	    // To index!
+	    \view\Navigation::redirectHome();
     }
     
     /**

@@ -26,13 +26,23 @@
     public function addMeme(\model\Meme $meme, $userID) {	    	    
       $db = $this->connection();
 
-      $sql = "INSERT INTO $this->dbTable (" . self::$userIDRow . ", " . self::$imageRow . ", " . self::$topTextRow . ", " . self::$bottomTextRow . ", " . self::$base64Row . ") VALUES (?, ?, ?, ?, ?)";
-		  $params = array($userID, $meme->getImage(), $meme->getTopText(), $meme->getBottomText(), $meme->getBase64());
+      $sql = "INSERT INTO $this->dbTable (" . self::$userIDRow . ", 
+      	" . self::$imageRow . ", " . self::$topTextRow . ", 
+				" . self::$bottomTextRow . ", " . self::$base64Row . ") 
+      	VALUES (?, ?, ?, ?, ?)";
+      	
+		  $params = array($userID, $meme->getImage(), $meme->getTopText(), 
+		  	$meme->getBottomText(), $meme->getBase64());
 
       $query = $db->prepare($sql);
 		  $query->execute($params);
     }
     
+    /**
+      * Get a specfic meme from the db
+      *
+      * @param int $id
+      */
     public function getMeme($id) {
   		$db = $this->connection();
 
@@ -45,26 +55,36 @@
   		$result = $query->fetch();
 
   		if ($result) {
-	  		$meme = new \model\Meme($result[self::$imageRow], $result[self::$topTextRow], $result[self::$bottomTextRow]);
-	  		$meme->setID($result[self::$idRow]);
-	  		$meme->setUserID($result[self::$userIDRow]);
-	  		$meme->setLikes($result[self::$likesRow]);
-	  		$meme->setBase64($result[self::$base64Row]);
+	  		$meme = new \model\Meme($result[self::$idRow], $result[self::$userIDRow], 
+	  			$result[self::$likesRow], $result[self::$imageRow], 
+	  			$result[self::$topTextRow], $result[self::$bottomTextRow], 
+	  			$result[self::$base64Row]);
 	  		
   			return $meme;
   		}
   	}
   	
+  	/**
+      * Like a meme
+      *
+      * @param Meme $meme
+      */
   	public function likeMeme(\model\Meme $meme) {
   		$db = $this -> connection();
 			
-  		$sql = "UPDATE $this->dbTable SET " . self::$likesRow . " =  " . self::$likesRow . " + 1 WHERE " . self::$idRow . " = ?";
+  		$sql = "UPDATE $this->dbTable SET " . self::$likesRow . " =  
+  			" . self::$likesRow . " + 1 WHERE " . self::$idRow . " = ?";
   		$params = array($meme->getID());
 
   		$query = $db->prepare($sql);
   		$query->execute($params);
   	}
   	
+  	/**
+      * Delete a meme
+      *
+      * @param Meme $meme
+      */
   	public function deleteMeme(\model\Meme $meme) {
   		$db = $this -> connection();
 
@@ -75,6 +95,11 @@
   		$query->execute($params);
   	}
     
+    /**
+      * Retrives all the memes from the db
+      *
+      * @return array - of memes
+      */
     public function getAllMemes() {
       $db = $this->connection();
 
@@ -85,20 +110,11 @@
      
       $memeList = array();
      
-      foreach($query->fetchAll() as $meme){
-	      $id 			  = $meme[self::$idRow];
-	      $userID     = $meme[self::$userIDRow];
-	      $likes      = $meme[self::$likesRow];
-        $image 			= $meme[self::$imageRow];
-        $topText 		= $meme[self::$topTextRow];
-        $bottomText = $meme[self::$bottomTextRow];
-        $base64 		= $meme[self::$base64Row];
-
-        $meme = new \model\Meme($image, $topText, $bottomText);
-        $meme->setID($id);
-        $meme->setUserID($userID);
-        $meme->setLikes($likes);
-        $meme->setBase64($base64);
+      foreach($query->fetchAll() as $result){
+	      $meme = new \model\Meme($result[self::$idRow], $result[self::$userIDRow], 
+	  			$result[self::$likesRow], $result[self::$imageRow], 
+	  			$result[self::$topTextRow], $result[self::$bottomTextRow], 
+	  			$result[self::$base64Row]);
 
         $memeList[] = $meme;
       }
@@ -106,6 +122,12 @@
       return $memeList;
     }
     
+    /**
+      * Get a specfic memebers memes
+      *
+      * @param int $id
+      * @return array - of memes
+      */
     public function getMembersMemes($id) {
       $db = $this->connection();
 
@@ -117,20 +139,11 @@
 
       $memeList = array();
      
-      foreach($query->fetchAll() as $meme){
-	      $id 			  = $meme[self::$idRow];
-	      $userID     = $meme[self::$userIDRow];
-	      $likes      = $meme[self::$likesRow];
-        $image 			= $meme[self::$imageRow];
-        $topText 		= $meme[self::$topTextRow];
-        $bottomText = $meme[self::$bottomTextRow];
-        $base64 		= $meme[self::$base64Row];
-
-        $meme = new \model\Meme($image, $topText, $bottomText);
-        $meme->setID($id);
-        $meme->setUserID($userID);
-        $meme->setLikes($likes);
-        $meme->setBase64($base64);
+      foreach($query->fetchAll() as $result){
+	      $meme = new \model\Meme($result[self::$idRow], $result[self::$userIDRow], 
+	  			$result[self::$likesRow], $result[self::$imageRow], 
+	  			$result[self::$topTextRow], $result[self::$bottomTextRow], 
+	  			$result[self::$base64Row]);
 
         $memeList[] = $meme;
       }

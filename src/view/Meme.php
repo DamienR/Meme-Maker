@@ -30,7 +30,7 @@
     		$_POST[self::$fieldImage] = $_FILES[self::$fieldImageUpload]['tmp_name'];
     	}
 
-  		return new \model\Meme($_POST[self::$fieldImage], $_POST[self::$fieldTopText], $_POST[self::$fieldBottomText]);
+  		return new \model\Meme(null, null, null, $_POST[self::$fieldImage], $_POST[self::$fieldTopText], $_POST[self::$fieldBottomText]);
   	}
 
     public function createMeme($imagesToChoose) {

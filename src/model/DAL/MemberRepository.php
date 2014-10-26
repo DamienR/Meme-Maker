@@ -20,7 +20,7 @@
       */
     public function addMember(\model\Member $member) {
       if ($this->getMember($member->getName())) {
-        throw new \Exception('Användarnamn är taget.');
+        throw new \Exception('Username already taken.');
       }
 
       $db = $this->connection();

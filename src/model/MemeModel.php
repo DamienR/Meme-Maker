@@ -174,7 +174,13 @@
       return $images;
     }
     
-    public function uploadImgur($meme) {				    
+    /**
+      * Uploads an image to IMGUR with their API
+      *
+      * @param Meme $meme - The meme to upload
+      * @return string - The adress of the uploaded image
+      */
+    public function uploadImgur(\model\Meme $meme) {				    
 			$url = 'https://api.imgur.com/3/image.json';
 			$headers = array("Authorization: Client-ID " . \Settings::$IMGUR_CLIENTID);
 			$pvars  = array('image' => $meme->getBase64());
@@ -196,6 +202,12 @@
 			return "http://imgur.com/" . $json_returned["data"]["id"];
     }
     
+    /**
+      * Checks if the user can edit the meme
+      *
+      * @param int $userID - The id of the user
+      * @return boolval
+      */
     public static function canEditMeme($userID) {
 	    if(\Model\MemberModel::userIsLoggedIn()) {
 		    if ($userID === $_SESSION[\model\MemberModel::$sessionUserID]) {
